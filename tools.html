@@ -44,7 +44,7 @@
 					return;
 				}
 				var x1=Number(x),x2=Math.sqrt(x1),flag=true;
-				for(var i=2;i<=x2;i++)
+				for(var i=2;i<=x2&&flag;i++)
 					if(x1%i==0)flag=false;
 				if(flag&&x1>=2)$("checkprime_result").innerHTML="<font style=\"color:green\">&nbsp;&nbsp;"+x1+" is a prime number.</font>";
 				else $("checkprime_result").innerHTML="<font style=\"color:red\">&nbsp;&nbsp;"+x1+" is not a prime number.</font>";
