@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>Milmon</title>
+		<title>Milmon Tools</title>
 		<link rel="stylesheet" href="file/css/mdui.min.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
 		<style>
@@ -24,7 +24,8 @@
 							(paramValue=arrSource[i].split("=")[1], isFound = !0), i++;
 				} 
 				return paramValue == "" && (paramValue = null), paramValue 
-			}  
+			}
+
 			function markdown(file){
 				var result="";
 				var inmathjax=false;
@@ -64,11 +65,9 @@
                     $('article').innerHTML=markdown(json);
                 }
             };
-
-        </script>
+		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background:#B7EEF8">
-
 		<!-- ---------标题栏--------------- -->
 		<div class="mc-appbar mdui-appbar-fixed mdui-appbar mdui-color-theme mdui-hoverable">
 			<div class="toolbar mdui-toolbar">
@@ -102,13 +101,13 @@
 					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">library_books</i>
 					<div class="mdui-list-item-content">题目中心</div>
 				</a>
-				<a class="mdui-list-item mdui-ripple mdui-list-item-active" href="tools">
+				<a class="mdui-list-item mdui-ripple" href="tools">
 					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">apps</i>
 					<div class="mdui-list-item-content">工具中心</div>
 				</a>
 			</ul>
 		</div>
-
+		
         <!-- ---------- 文章 ---------- -->
 		<br><br><br><br><br><br>
 		<div class="mdui-container mdui-shadow-5" style="background:white">
@@ -120,8 +119,9 @@
             </div>
         </div>
 
-		<!-- -------------联系方式------------ -->
 		<br><br>
+		<!-- -----------联系方式-------------- -->
+
 		<footer style="background:#444;">
 			<div class="mdui-container mdui-p-t-3 mdui-text-center">
 				<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'腾讯 QQ'}" href="tencent://AddContact/?subcmd=all&uin=115549630">
@@ -139,5 +139,8 @@
 			</div>
 			<br><br><br>
 		</footer>
+		
+		<!-- ------------------------------ -->
+		<script src="file/script/mdui.min.js"></script>
 	</body>
 </html>
