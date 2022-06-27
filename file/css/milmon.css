@@ -1,3 +1,8 @@
+@font-face{
+	font-family:consola;
+	src:url('file/fonts/consola.ttf');
+}
+
 .copybutton{
 	float:right;
 	border-radius:4px;
