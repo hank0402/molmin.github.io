@@ -1,0 +1,13 @@
+.copybutton{
+	float:right;
+	border-radius:4px;
+	border:1px solid purple;
+	color:purple;
+	cursor:pointer;
+}
+.copybutton-cursor{
+	background-color:white;
+}
+.copybutton-cursor:hover{
+	background-color:#eee;
+}
