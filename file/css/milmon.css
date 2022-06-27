@@ -5,6 +5,7 @@
 
 .copybutton{
 	float:right;
+	padding:2px,2px;
 	border-radius:4px;
 	border:1px solid purple;
 	color:purple;
