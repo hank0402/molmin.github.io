@@ -12,12 +12,13 @@
 	border-bottom:1px solid purple;
 	border-left:1px solid purple;
 	border-right:hidden;
-	color:purple;
 	cursor:pointer;
 }
 .copybutton-cursor{
 	background-color:white;
+	color:purple;
 }
 .copybutton-cursor:hover{
-	background-color:#eee;
+	background-color:purple;
+	color:white;
 }
