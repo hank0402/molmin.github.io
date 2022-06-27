@@ -3,98 +3,32 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>Milmon Problem</title>
-		<link rel="stylesheet" href="file/css/mdui.min.css"/>
+		<title id="title">Milmon Problem</title>
 		<link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
-		<style>
-		</style>
+		<link rel="stylesheet" href="file/css/mdui.min.css"/>
+		<link rel="stylesheet" href="file/css/milmon.css"/>
+		<script src="file/script/milmon.js"></script>
+		<script src="file/script/mdui.min.js"></script>
 		<script>
-			function $(x){
-				return document.getElementById(x);
-			}
-			function getParam(paramName) { 
-				paramValue="",isFound=!1; 
-				if(this.location.search.indexOf("?")==0 && this.location.search.indexOf("=")>1) { 
-					arrSource=unescape(this.location.search).substring(1,this.location.search.length).split("&"),i=0; 
-					while(i<arrSource.length && !isFound)
-						arrSource[i].indexOf("=")>0 && arrSource[i].split("=")[0].toLowerCase()==paramName.toLowerCase() && 
-							(paramValue=arrSource[i].split("=")[1], isFound = !0), i++;
-				} 
-				return paramValue == "" && (paramValue = null), paramValue 
-			}
-
-			function markdown(file){
-				var result="";
-				var inmathjax=false;
-				var titlegrade=0;
-				for(var i=0;i<file.length;i++){
-					if(i==0||(file.charAt(i-1)=='\n'&&i>=2&&file.charAt(i-2)=='\n')){
-						if(file.charAt(i)=='#'){
-							var tot=0;
-							while(file.charAt(i)=='#')i++,tot++;
-							result=result+"<h"+tot+">";
-							titlegrade=tot;
-							continue;
-						}
-						else{
-							result=result+"<p>";
-							titlegrade=0;
-						}
-					}
-					if(file.charAt(i)=='\n'&&file.charAt(i-1)!='\n'&&file.charAt(i+1)!='\n')
-						result=result+" ";
-					if(file.charAt(i)!='\n')result=result+file.charAt(i);
-					if(i==file.length-1||(file.charAt(i+1)=='\n'&&file.charAt(i+2)=='\n')){
-						if(titlegrade==0)result=result+"</p>";
-						else result=result+"</h"+titlegrade+">";
-					}
+			loadfile("problem/"+getParam("id")+"/config.txt",function(text){
+				$("title").innerHTML="#"+getParam("id")+". "+text.split(";")[0]+" - Milmon Problem";
+				$("problemtitle").innerHTML="#"+getParam("id")+". "+text.split(";")[0];
+			});
+			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
+				$("statement").innerHTML=markdown(text);
+			});
+			loadfile("problem/"+getParam("id")+"/solution.md",function(text){
+				$("solution").innerHTML=markdown(text);
+			});
+			loadfile("problem/"+getParam("id")+"/code.cpp",function(text){
+				var tmp="";
+				for(var i=0;i<text.length;i++){
+					if(text.charAt(i)=='\n')tmp=tmp+'\n';
+					else tmp=tmp+"&#"+text.charCodeAt(i)+";";
 				}
-				return result;
-			}
-
-			function loadconfig(){
-				let url="https://molmin.github.io/problem/"+getParam("id")+"/config.txt";
-				let httpRequest=new XMLHttpRequest();
-				httpRequest.open('GET',url,true);
-				httpRequest.send();
-				httpRequest.onreadystatechange=function () {
-					if (httpRequest.readyState==4 && httpRequest.status==200) {
-						let json=httpRequest.responseText;
-						$("problemtitle").innerHTML="#"+getParam("id")+". "+json.split(";")[0];
-					}
-				};
-			}
-
-			function loadfile(name,id){
-				let url="https://molmin.github.io/problem/"+getParam("id")+"/"+name;
-				let httpRequest=new XMLHttpRequest();
-				httpRequest.open('GET',url,true);
-				httpRequest.send();
-				httpRequest.onreadystatechange=function () {
-					if (httpRequest.readyState==4 && httpRequest.status==200) {
-						let json=httpRequest.responseText;
-						$(id).innerHTML=markdown(json);
-					}
-				};
-			}
-
-			function loadcode(name,id){
-				let url="https://molmin.github.io/problem/"+getParam("id")+"/"+name;
-				let httpRequest=new XMLHttpRequest();
-				httpRequest.open('GET',url,true);
-				httpRequest.send();
-				httpRequest.onreadystatechange=function () {
-					if (httpRequest.readyState==4 && httpRequest.status==200) {
-						let json=httpRequest.responseText;
-						$(id).innerHTML=json;
-					}
-				};
-			}
-
-			loadconfig();
-			loadfile("statement.md","statement");
-			loadfile("solution.md","solution");
-			loadcode("code.cpp","code");
+				$("answer-code").innerHTML="<pre style=\"margin-left:15px;line-height:150%;font-family:Consolas;\">"+tmp+"</pre>";
+				$("copycodebutton").onclick=function(){copy(text);}
+			});
 		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background:#B7EEF8">
@@ -154,9 +88,12 @@
 					</div>
 					<div id="solution" class="mdui-p-a-2">
 					</div>
-					<div class="mdui-p-a-2">
-						<code id="code">
-						</code>
+					<div id="code" class="mdui-p-a-2">
+						<div style="border-radius:10px;background:#333;">
+							<button id="copycodebutton" class="copybutton copybutton-cursor">复制</button>
+							<div id="answer-code" style="padding:1px;color:white;">
+							</div>
+						</div>
 					</div>
                 </div>
             </div>
@@ -182,8 +119,5 @@
 			</div>
 			<br><br><br>
 		</footer>
-		
-		<!-- ------------------------------ -->
-		<script src="file/script/mdui.min.js"></script>
 	</body>
 </html>

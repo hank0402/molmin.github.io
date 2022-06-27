@@ -4,36 +4,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Milmon Tools</title>
-		<link rel="stylesheet" href="file/css/mdui.min.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
-		<style>
-			.select-middle{
-				width:300px;
-			}
-		</style>
+		<link rel="stylesheet" href="file/css/mdui.min.css"/>
+		<link rel="stylesheet" href="file/css/milmon.css"/>
+		<script src="file/script/milmon.js"></script>
+		<script src="file/script/mdui.min.js"></script>
 		<script>
-			function $(x){
-				return document.getElementById(x);
-			}
-			function message(s){
-				mdui.snackbar({
-					message: '内容已复制到剪贴板',
-					position: 'bottom'
-				});
-			}
-			function copy(s){
-				const input = document.createElement('input');
-				document.body.appendChild(input);
-				input.setAttribute('value', s);
-				input.select();
-				var flag=false;
-				if (document.execCommand('copy')) {
-					document.execCommand('copy');
-					flag=true;
-				}
-				document.body.removeChild(input);
-				return flag;
-			}
 			function isnumber(x){
 				return (/(^[1-9]\d*$)/.test(x));
 			}
@@ -163,7 +139,7 @@
 				</div>
 				<div class="mdui-col-xs-5">
 					<br>
-					<select id="randomstringtmp1" class="mdui-select select-middle" mdui-select="{position:'bottom'}">
+					<select id="randomstringtmp1" class="mdui-select" style="width:300px;" mdui-select="{position:'bottom'}">
 						<option value="1">Password</option>
 						<option value="2">MD5</option>
 						<option value="3">Short Link</option>
@@ -195,9 +171,6 @@
 		</div>
 
 		<div>
-			<br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br>
 			<br><br><br><br><br><br><br><br><br><br>
 		</div>
 
@@ -220,8 +193,5 @@
 			</div>
 			<br><br><br>
 		</footer>
-		
-		<!-- ------------------------------ -->
-		<script src="file/script/mdui.min.js"></script>
 	</body>
 </html>
