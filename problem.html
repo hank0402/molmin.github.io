@@ -26,7 +26,7 @@
 					if(text.charAt(i)=='\n')tmp=tmp+'\n';
 					else tmp=tmp+"&#"+text.charCodeAt(i)+";";
 				}
-				$("answer-code").innerHTML="<pre style=\"margin-left:15px;line-height:150%;font-family:Consolas;\">"+tmp+"</pre>";
+				$("answer-code").innerHTML="<pre style=\"margin-left:15px;line-height:150%;\">"+tmp+"</pre>";
 				$("copycodebutton").onclick=function(){copy(text);}
 			});
 		</script>
@@ -91,7 +91,7 @@
 					<div id="code" class="mdui-p-a-2">
 						<div style="border-radius:10px;border:1px solid purple;">
 							<button id="copycodebutton" class="copybutton copybutton-cursor">复制</button>
-							<div id="answer-code" style="padding:1px;font-family:consola;">
+							<div id="answer-code" style="padding:1px;font-family:'font-consola';">
 							</div>
 						</div>
 					</div>
