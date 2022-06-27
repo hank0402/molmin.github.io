@@ -37,6 +37,7 @@ function loadfile(filename,func){
 }
 
 function markdown(file){
+	console.log("1");
 	var result="";
 	var titlegrade=0;
 	var inmathjax=false,instrong=false,inem=false;
