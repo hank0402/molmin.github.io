@@ -26,12 +26,12 @@
 					if(text.charAt(i)=='\n')tmp=tmp+'\n';
 					else tmp=tmp+"&#"+text.charCodeAt(i)+";";
 				}
-				$("answer-code").innerHTML="<pre style=\"margin-left:15px;line-height:150%;\">"+tmp+"</pre>";
-				$("copycodebutton").onclick=function(){copy(text);}
+				$("answer-code").innerHTML="<pre class='code-pre'>"+tmp+"</pre>";
+				$("code-copycodebutton").onclick=function(){copy(text);}
 			});
 		</script>
 	</head>
-	<body class="mdui-theme-primary-purple" style="background:#B7EEF8">
+	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
 		<!-- ---------标题栏--------------- -->
 		<div class="mc-appbar mdui-appbar-fixed mdui-appbar mdui-color-theme mdui-hoverable">
 			<div class="toolbar mdui-toolbar">
@@ -39,34 +39,34 @@
 					<i class="mdui-icon material-icons">menu</i>
 				</span>
 				<a href="/" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
-					<i class="mdui-icon material-icons" style="color:#fff;">home</i>
+					<i class="mdui-icon material-icons" style="color: #fff;">home</i>
 				</a>
-				<span class="mdui-typo-title" style="color:#fff;">Milmon Problem</span>
+				<span class="mdui-typo-title" style="color: #fff;">Milmon Problem</span>
 				<div class="mdui-toolbar-spacer"></div>
 				<a href="" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
-					<i class="mdui-icon material-icons" style="color:#fff;">refresh</i>
+					<i class="mdui-icon material-icons" style="color: #fff;">refresh</i>
 				</a>
 			</div>
 		</div>
 
 		<!-- ---------左侧菜单--------------- -->
-		<div class="mdui-drawer mdui-drawer-close" id="main-drawer" style="background:rgb(52,152,219);color:white">
+		<div class="mdui-drawer mdui-drawer-close" id="main-drawer" style="background: rgb(52,152,219); color: white">
 			<ul class="mdui-list">
 				<a class="mdui-list-item mdui-ripple" href="/">
-					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">home</i>
+					<i class="mdui-list-item-icon mdui-icon material-icons" style="color: #fff;">home</i>
 					<div class="mdui-list-item-content">首页</div>
 				</a>
 				<div class="mdui-divider mdui-m-y-0"></div>
 				<a class="mdui-list-item mdui-ripple" href="blog">
-					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">library_books</i>
+					<i class="mdui-list-item-icon mdui-icon material-icons" style="color: #fff;">library_books</i>
 					<div class="mdui-list-item-content">博文列表</div>
 				</a>
 				<a class="mdui-list-item mdui-ripple" href="problems">
-					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">work</i>
+					<i class="mdui-list-item-icon mdui-icon material-icons" style="color: #fff;">work</i>
 					<div class="mdui-list-item-content">题目中心</div>
 				</a>
 				<a class="mdui-list-item mdui-ripple" href="tools">
-					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">apps</i>
+					<i class="mdui-list-item-icon mdui-icon material-icons" style="color: #fff;">apps</i>
 					<div class="mdui-list-item-content">工具中心</div>
 				</a>
 			</ul>
@@ -74,7 +74,7 @@
 
         <!-- ---------- Problem ---------- -->
 		<br><br><br><br><br><br>
-		<div class="mdui-container mdui-shadow-5" style="background:white">
+		<div class="mdui-container mdui-shadow-5" style="background: white">
 			<div class="mdui-row">
 				<div class="mdui-col-xs-12">
 					<br>
@@ -89,9 +89,9 @@
 					<div id="solution" class="mdui-p-a-2">
 					</div>
 					<div id="code" class="mdui-p-a-2">
-						<div style="border-radius:10px;border:1px solid purple;">
-							<button id="copycodebutton" class="copybutton copybutton-cursor">复制</button>
-							<div id="answer-code" style="padding:1px;font-family:'font-consola';">
+						<div vlass="code-divoutside">
+							<button id="code-copycodebutton" class="code-copybutton code-copybutton-cursor">复制</button>
+							<div id="answer-code" class="code-divinside">
 							</div>
 						</div>
 					</div>
@@ -102,19 +102,19 @@
 		<br><br>
 		<!-- -----------联系方式-------------- -->
 
-		<footer style="background:#444;">
+		<footer style="background: #444;">
 			<div class="mdui-container mdui-p-t-3 mdui-text-center">
 				<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'腾讯 QQ'}" href="tencent://AddContact/?subcmd=all&uin=115549630">
-					<img src="file/image/qq.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+					<img src="file/image/qq.ico" width="20px" height="20px" style="margin: 7px 0px 0px 0px;">
 				</a>
 				<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'洛谷'}" href="https://www.luogu.com.cn/user/234641">
-					<img src="file/image/luogu.ico" width="20px" height="20px" style="margin:7px 0px 0px 0px;">
+					<img src="file/image/luogu.ico" width="20px" height="20px" style="margin: 7px 0px 0px 0px;">
 				</a>
 				<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'CodeForces'}" href="https://codeforces.com/profile/liujiameng">
-					<img src="file/image/codeforces.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+					<img src="file/image/codeforces.png" width="20px" height="20px" style="margin: 8px 0px 0px 0px;">
 				</a>
 				<a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content:'Atcoder'}" href="https://atcoder.jp/users/liujiameng">
-					<img src="file/image/atcoder.png" width="20px" height="20px" style="margin:8px 0px 0px 0px;">
+					<img src="file/image/atcoder.png" width="20px" height="20px" style="margin: 8px 0px 0px 0px;">
 				</a>
 			</div>
 			<br><br><br>

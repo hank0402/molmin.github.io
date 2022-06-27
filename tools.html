@@ -16,24 +16,24 @@
 			function checkprime(){
 				var x=$('checkprimeval1').value;
 				if(!isnumber(x)){
-					$("checkprime_result").innerHTML="<font style=\"color:red\">&nbsp;&nbsp;\""+x+"\" is not a positive integer.</font>";
+					$("checkprime_result").innerHTML="<font style='color: red;'>&nbsp;&nbsp;\""+x+"\" is not a positive integer.</font>";
 					return;
 				}
 				var x1=Number(x),x2=Math.sqrt(x1),flag=true;
 				for(var i=2;i<=x2&&flag;i++)
 					if(x1%i==0)flag=false;
-				if(flag&&x1>=2)$("checkprime_result").innerHTML="<font style=\"color:green\">&nbsp;&nbsp;"+x1+" is a prime number.</font>";
-				else $("checkprime_result").innerHTML="<font style=\"color:red\">&nbsp;&nbsp;"+x1+" is not a prime number.</font>";
+				if(flag&&x1>=2)$("checkprime_result").innerHTML="<font style='color: green;'>&nbsp;&nbsp;"+x1+" is a prime number.</font>";
+				else $("checkprime_result").innerHTML="<font style='color:red;'>&nbsp;&nbsp;"+x1+" is not a prime number.</font>";
 			}
 			function randomstring(){
 				var len=$('randomstringval1').value;
 				var charSet=$('randomstringval2').value;
 				if(!isnumber(len)){
-					$("randomstring_result").innerHTML="<font style=\"color:red\">&nbsp;&nbsp;\""+len+"\" is not a positive integer.</font>";
+					$("randomstring_result").innerHTML="<font style='color: red;'>&nbsp;&nbsp;\""+len+"\" is not a positive integer.</font>";
 					return;
 				}
 				if(charSet==""){
-					$("randomstring_result").innerHTML="<font style=\"color:red\">&nbsp;&nbsp;Charset is empty.</font>";
+					$("randomstring_result").innerHTML="<font style='color: red;'>&nbsp;&nbsp;Charset is empty.</font>";
 					return;
 				}
 				var str="",charnum=charSet.length;
@@ -60,7 +60,7 @@
 			}
 		</script>
 	</head>
-	<body class="mdui-theme-primary-purple" style="background:#B7EEF8">
+	<body class="mdui-theme-primary-purple" style="background:#B7EEF8;">
 		<!-- ---------标题栏--------------- -->
 		<div class="mc-appbar mdui-appbar-fixed mdui-appbar mdui-color-theme mdui-hoverable">
 			<div class="toolbar mdui-toolbar">
@@ -103,7 +103,7 @@
 		
 		<!-- ---------工具 CheckPrime--------------- -->
 		<br><br><br><br><br><br>
-		<div class="mdui-container mdui-shadow-5" style="background:white" id="checkprime-div">
+		<div class="mdui-container mdui-shadow-5" style="background:white;" id="checkprime-div">
 			<br>
 			<div class="mdui-row">
 				<div class="mdui-col-xs-6">
@@ -127,7 +127,7 @@
 
 		<!-- ---------工具 RandomString--------------- -->
 		<br>
-		<div class="mdui-container mdui-shadow-5" style="background:white" id="randomstring-div">
+		<div class="mdui-container mdui-shadow-5" style="background:white;" id="randomstring-div">
 			<br>
 			<div class="mdui-row">
 				<div class="mdui-col-xs-6">
