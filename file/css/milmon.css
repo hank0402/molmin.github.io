@@ -1,24 +1,37 @@
 @font-face{
-	font-family:font-consola;
-	src:url('../fonts/consola.ttf');
+	font-family: font-codetext;
+	src: url("../fonts/consola.ttf");
 }
 
-.copybutton{
-	float:right;
-	padding:4px 8px;
-	border-bottom-left-radius:10px;
-	border-top-right-radius:10px;
-	border-top:hidden;
-	border-bottom:1px solid purple;
-	border-left:1px solid purple;
-	border-right:hidden;
-	cursor:pointer;
+.code-copybutton{
+	float: right;
+	padding: 4px 8px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top: hidden;
+	border-bottom: 1px solid purple;
+	border-left: 1px solid purple;
+	border-right: hidden;
+	cursor: pointer;
 }
-.copybutton-cursor{
-	background-color:white;
-	color:purple;
+.code-copybutton-cursor{
+	background-color: white;
+	color: purple;
 }
-.copybutton-cursor:hover{
-	background-color:purple;
-	color:white;
+.code-copybutton-cursor:hover{
+	background-color: purple;
+	color: white;
+}
+
+.code-divinside{
+	padding: 1px;
+	font-family: "font-codetext";
+}
+.code-divoutside{
+	border-radius: 10px;
+	border: 1px solid purple;
+}
+.code-pre{
+	margin-left: 15px;
+	line-height: 150%;
 }
