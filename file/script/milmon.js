@@ -39,7 +39,7 @@ function loadfile(filename,func){
 function markdown(file){
 	var result="";
 	var titlegrade=0;
-	var inmathjax=false;
+	var inmathjax=false,instrong=false,inem=false;
 	for(var i=0;i<file.length;i++){
 		if(i==0||(file.charAt(i-1)=='\n'&&i>=2&&file.charAt(i-2)=='\n')){
 			if(file.charAt(i)=='#'){
@@ -62,6 +62,15 @@ function markdown(file){
 				if(inmathjax)result=result+"\">";
 				else result=result+"<img src=\"https://latex.codecogs.com/svg.latex?";
 				inmathjax=!inmathjax;
+			}
+			else if(file.charAt(i)=='*'){
+				var total=1;
+				while(file.charAt(i+1)=='*')i++,total++;
+				if(total==1){
+					if(inem)result=result+"</em>";
+					else result=result+"<em>";
+					inem=!inem;
+				}
 			}
 			else result=result+file.charAt(i);
 		}
