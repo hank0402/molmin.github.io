@@ -24,6 +24,12 @@ function copy(str){
 	document.body.removeChild(text_area);
 	message('内容已复制到剪贴板');
 }
+function newrandomid(){
+	var chars="0123456789abcdef",result="";
+	for(var i=0;i<32;i++)
+		result=result+chars[parseInt(Math.random()*16)];
+	return result;
+}
 function loadfile(filename,func){
 	let url=filename;
 	let httpRequest=new XMLHttpRequest();
@@ -39,8 +45,7 @@ function loadfile(filename,func){
 function markdown(file){
 	var result="";
 	var titlegrade=0;
-	var inmathjax=false,instrong=false,inem=false,
-		ininlinecode=false;
+	var instrong=false,inem=false,ininlinecode=false;
 	for(var i=0;i<file.length;i++){
 		if(i==0||(file.charAt(i-1)=='\n'&&i>=2&&file.charAt(i-2)=='\n')){
 			if(file.charAt(i)=='#'){
@@ -51,11 +56,11 @@ function markdown(file){
 			}
 			else if(file.charAt(i)=='`'){
 				while(file.charAt(i)!='\n')i++;
-				var tmp="";
+				var tmp="",tmp2="";
 				while(file.substring(i+1,i+5)!='\n```')
-					i++,tmp=tmp+file.charAt(i);
+					i++,tmp=tmp+"&#"+file.charCodeAt(i)+";",tmp2=tmp2+file.charAt(i);
 				i=i+4;
-				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy(\''+tmp+'\');">复制</button><div class="code-divinside"><pre class="code-pre">'+tmp+'</pre></div></div>';
+				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy(\''+tmp2+'\');">复制</button><div class="code-divinside"><pre class="code-pre">'+tmp+'</pre></div></div>';
 			}
 			else{
 				result=result+"<p>";
@@ -66,7 +71,6 @@ function markdown(file){
 		if(file.charAt(i)=='\n'&&file.charAt(i-1)!='\n'&&file.charAt(i+1)!='\n')
 			result=result+" ";
 		if(file.charAt(i)!='\n'){
-			var ch=file.charAt(i);
 			if(file.charAt(i)=='`'){
 				if(ininlinecode)result=result+"</code>";
 				else result=result+"<code class='code-inline'>";
