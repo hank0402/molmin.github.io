@@ -37,7 +37,6 @@ function loadfile(filename,func){
 }
 
 function markdown(file){
-	console.log("1");
 	var result="";
 	var titlegrade=0;
 	var inmathjax=false,instrong=false,inem=false;
@@ -71,6 +70,23 @@ function markdown(file){
 					if(inem)result=result+"</em>";
 					else result=result+"<em>";
 					inem=!inem;
+				}
+				if(total==2){
+					if(instrong)result=result+"</strong>";
+					else result=result+"<strong>";
+					instrong=!instrong;
+				}
+				if(total==3){
+					if(inem){
+						if(introng)result=result+"</em></strong>";
+						else result=result+"</em><strong>";
+					}
+					else{
+						if(instrong)result=result+"</strong><em>";
+						else result=result+"<strong><em>";
+					}
+					inem=!inem;
+					instrong=!instrong;
 				}
 			}
 			else result=result+file.charAt(i);
