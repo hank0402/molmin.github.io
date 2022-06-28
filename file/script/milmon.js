@@ -36,10 +36,8 @@ function loadfile(filename,func){
 	httpRequest.open('GET',url,true);
 	httpRequest.send();
 	httpRequest.onreadystatechange=function(){
-		if (httpRequest.readyState==4 && httpRequest.status==200) {
+		if (httpRequest.readyState==4 && httpRequest.status==200)
 			func(httpRequest.responseText);
-		}
-		else message('找不到文件：'+filename);
 	};
 }
 
