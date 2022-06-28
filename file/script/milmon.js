@@ -66,7 +66,8 @@ function markdown(file){
 					else tmp2=tmp2+file.charAt(i);
 				}
 				i=i+4;
-				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy(\''+tmp2+'\');">复制</button><div class="code-divinside"><pre class="code-pre">'+tmp+'</pre></div></div>';
+				var id=newrandomid();
+				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy($(\''+id+'\'));">复制</button><div class="code-divinside"><pre class="code-pre" id="'+id+'">'+tmp+'</pre></div></div>';
 			}
 			else{
 				result=result+"<p>";
