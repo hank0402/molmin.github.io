@@ -48,12 +48,20 @@ function markdown(file){
 				while(file.charAt(i)=='#')i++,tot++;
 				result=result+"<h"+tot+">";
 				titlegrade=tot;
-				continue;
+			}
+			else if(file.charAt(i)=='`'){
+				while(file.charAt(i)!='\n')i++;
+				var tmp="";
+				while(file.substring(i+1,i+5)!='\n```')
+					i++,tmp=tmp+file.charAt(i);
+				i=i+4;
+				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy(\''+tmp+'\');">复制</button><div class="code-divinside"><pre class="code-pre">'+tmp+'</pre></div></div>';
 			}
 			else{
 				result=result+"<p>";
 				titlegrade=0;
 			}
+			continue;
 		}
 		if(file.charAt(i)=='\n'&&file.charAt(i-1)!='\n'&&file.charAt(i+1)!='\n')
 			result=result+" ";
