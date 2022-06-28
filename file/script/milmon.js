@@ -59,12 +59,7 @@ function markdown(file){
 			result=result+" ";
 		if(file.charAt(i)!='\n'){
 			var ch=file.charAt(i);
-			if(ch=='$'){
-				if(inmathjax)result=result+"'>";
-				else result=result+"<img src='https://latex.codecogs.com/svg.latex?";
-				inmathjax=!inmathjax;
-			}
-			else if(file.charAt(i)=='`'){
+			if(file.charAt(i)=='`'){
 				if(ininlinecode)result=result+"</code>";
 				else result=result+"<code>";
 				ininlinecode=!ininlinecode;
