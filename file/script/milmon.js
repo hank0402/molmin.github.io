@@ -39,7 +39,8 @@ function loadfile(filename,func){
 function markdown(file){
 	var result="";
 	var titlegrade=0;
-	var inmathjax=false,instrong=false,inem=false;
+	var inmathjax=false,instrong=false,inem=false,
+		ininlinecode=false;
 	for(var i=0;i<file.length;i++){
 		if(i==0||(file.charAt(i-1)=='\n'&&i>=2&&file.charAt(i-2)=='\n')){
 			if(file.charAt(i)=='#'){
@@ -59,9 +60,14 @@ function markdown(file){
 		if(file.charAt(i)!='\n'){
 			var ch=file.charAt(i);
 			if(ch=='$'){
-				if(inmathjax)result=result+"\">";
-				else result=result+"<img src=\"https://latex.codecogs.com/svg.latex?";
+				if(inmathjax)result=result+"'>";
+				else result=result+"<img src='https://latex.codecogs.com/svg.latex?";
 				inmathjax=!inmathjax;
+			}
+			else if(file.charAt(i)=='`'){
+				if(ininlinecode)result=result+"</div>";
+				else result=result+"<div class='code-inline'>";
+				ininlinecode=!ininlinecode;
 			}
 			else if(file.charAt(i)=='*'){
 				var total=1;
