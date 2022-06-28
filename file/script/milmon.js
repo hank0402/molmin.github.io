@@ -84,7 +84,7 @@ function markdown(file){
 				}
 				if(total==3){
 					if(inem){
-						if(introng)result=result+"</em></strong>";
+						if(instrong)result=result+"</em></strong>";
 						else result=result+"</em><strong>";
 					}
 					else{
