@@ -39,6 +39,7 @@ function loadfile(filename,func){
 		if (httpRequest.readyState==4 && httpRequest.status==200) {
 			func(httpRequest.responseText);
 		}
+		else message('找不到文件：'+filename);
 	};
 }
 
