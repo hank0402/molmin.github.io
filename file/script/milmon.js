@@ -53,6 +53,7 @@ function markdown(file){
 				while(file.charAt(i)=='#')i++,tot++;
 				result=result+"<h"+tot+">";
 				titlegrade=tot;
+				continue;
 			}
 			else if(file.charAt(i)=='`'){
 				while(file.charAt(i)!='\n')i++;
@@ -68,12 +69,12 @@ function markdown(file){
 				i=i+4;
 				var id=newrandomid();
 				result=result+'<div class="code-divoutside"><button class="code-copybutton code-copybutton-cursor" onclick="copy($(\''+id+'\').innerText);">复制</button><div class="code-divinside"><pre class="code-pre" id="'+id+'">'+tmp+'</pre></div></div>';
+				continue;
 			}
 			else{
 				result=result+"<p>";
 				titlegrade=0;
 			}
-			continue;
 		}
 		if(file.charAt(i)=='\n'&&file.charAt(i-1)!='\n'&&file.charAt(i+1)!='\n')
 			result=result+" ";
