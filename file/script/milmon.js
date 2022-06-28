@@ -101,6 +101,7 @@ function markdown(file){
 				result=result+"<img src='";
 				while(file.charAt(i+1)!=')')
 					i++,result=result+file.charAt(i);
+				result=result+"'>";
 				i++; continue;
 			}
 			else result=result+file.charAt(i);
