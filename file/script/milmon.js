@@ -61,7 +61,7 @@ function markdown(file){
 			var ch=file.charAt(i);
 			if(file.charAt(i)=='`'){
 				if(ininlinecode)result=result+"</code>";
-				else result=result+"<code>";
+				else result=result+"<code class='code-inline'>";
 				ininlinecode=!ininlinecode;
 			}
 			else if(file.charAt(i)=='*'){
