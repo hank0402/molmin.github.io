@@ -65,8 +65,8 @@ function markdown(file){
 				inmathjax=!inmathjax;
 			}
 			else if(file.charAt(i)=='`'){
-				if(ininlinecode)result=result+"</div>";
-				else result=result+"<div class='code-inline'>";
+				if(ininlinecode)result=result+"</code>";
+				else result=result+"<code>";
 				ininlinecode=!ininlinecode;
 			}
 			else if(file.charAt(i)=='*'){
