@@ -9,8 +9,13 @@ $$
 good *em* sss
 
 ```c++
-123
-jhhhhhjasdfhakjsdhfiwqhuih
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    cout<<"I AK IOI"<<endl;
+    return 0;
+}
 ```
 
 tt***1234*** asdssss
