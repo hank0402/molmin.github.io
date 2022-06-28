@@ -95,6 +95,14 @@ function markdown(file){
 					instrong=!instrong;
 				}
 			}
+			else if(file.charAt(i)=='!'&&(i==0||file.charAt(i-1)=='\n')&&file.charAt(i+1)=='['){
+				while(file.charAt(i)!=']')i++;
+				while(file.charAt(i)!='(')i++;
+				result=result+"<img src='";
+				while(file.charAt(i+1)!=')')
+					i++,result=result+file.charAt(i);
+				i++; continue;
+			}
 			else result=result+file.charAt(i);
 		}
 		if(i==file.length-1||(file.charAt(i+1)=='\n'&&file.charAt(i+2)=='\n')){
