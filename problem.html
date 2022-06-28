@@ -23,8 +23,7 @@
 			loadfile("problem/"+getParam("id")+"/code.cpp",function(text){
 				var tmp="";
 				for(var i=0;i<text.length;i++){
-					if(text.charAt(i)=='\n')tmp=tmp+'\n';
-					else tmp=tmp+"&#"+text.charCodeAt(i)+";";
+					tmp=tmp+"&#"+text.charCodeAt(i)+";";
 				}
 				$("answer-code").innerHTML="<pre class='code-pre'>"+tmp+"</pre>";
 				$("code-copycodebutton").onclick=function(){copy(text);}
