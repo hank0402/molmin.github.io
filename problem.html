@@ -7,12 +7,14 @@
 		<link rel="shortcut icon" type="image/x-icon" href="file/image/head.png">
 		<link rel="stylesheet" href="file/css/mdui.min.css"/>
 		<link rel="stylesheet" href="file/css/milmon.css"/>
+		<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+        <script src="https://yhx-12243.github.io/OI-transit/additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 		<script src="file/script/milmon.js"></script>
 		<script src="file/script/mdui.min.js"></script>
 		<script>
 			loadfile("problem/"+getParam("id")+"/config.txt",function(text){
-				$("title").innerHTML="#"+getParam("id")+". "+text.split(";")[0]+" - Milmon Problem";
-				$("problemtitle").innerHTML="#"+getParam("id")+". "+text.split(";")[0];
+				$("title").innerHTML=getParam("id")+". "+text.split(";")[0]+" - Milmon Problem";
+				$("problemtitle").innerHTML=getParam("id")+". "+text.split(";")[0];
 			});
 			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
 				$("statement").innerHTML=markdown(text);
