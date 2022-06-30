@@ -38,3 +38,9 @@
 .code-inline{
 	font-family: "font-codetext";
 }
+
+.tag{
+	padding: 2px 8px;
+	border-radius: 3px;
+	color: white;
+}
