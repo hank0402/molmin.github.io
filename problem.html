@@ -11,8 +11,14 @@
 		<script src="file/script/mdui.min.js"></script>
 		<script>
 			loadfile("problem/"+getParam("id")+"/config.txt",function(text){
-				$("title").innerHTML=getParam("id")+". "+text.split(";")[0]+" - Milmon Problem";
-				$("problemtitle").innerHTML=getParam("id")+". "+text.split(";")[0];
+				$("title").innerHTML=getParam("id")+". "+
+					text.split("\n")[0].split(";")[0]+" - Milmon Problem";
+				$("problemtitle").innerHTML=getParam("id")+". "+text.split("\n")[0].split(";")[0];
+				var config="<p>";
+				config=config+"时间限制："+text.split("\n")[0].split(";")[1];
+				config=config+"&nbsp;&nbsp;空间限制："+text.split("\n")[0].split(";")[2];
+				config=config+"</p>";
+				$("config-div").innerHTML=config;
 			});
 			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
 				$("statement").innerHTML=markdown(text);
@@ -80,6 +86,7 @@
 				<div class="mdui-col-xs-12">
 					<br>
 					<h1 id="problemtitle" align="center"></h1>
+					<div id="config-div" align="center"></div>
 					<div class="mdui-tab mdui-tab-centered" mdui-tab>
 						<a href="#statement" class="mdui-ripple">题面</a>
 						<a href="#solution" class="mdui-ripple">题解</a>
