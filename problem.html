@@ -26,9 +26,9 @@
 				config=config+"时间限制："+text.split("\n")[0].split(";")[1];
 				config=config+"&nbsp;&nbsp;&nbsp;&nbsp;空间限制："+text.split("\n")[0].split(";")[2];
 				config=config+"</p>";
-				config=config+gettags(text.split("\n")[1],"#14558f");
+				config=config+gettags(text.split("\n")[1].split(";"),"#14558f");
 				if(text.split("\n")[1].length)config=config+"&nbsp;";
-				config=config+gettags(text.split("\n")[2],"#22700a");
+				config=config+gettags(text.split("\n")[2].split(";"),"#22700a");
 				$("config-div").innerHTML=config;
 			});
 			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
