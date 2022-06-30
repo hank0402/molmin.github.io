@@ -1,1 +1,4 @@
-Test Problem;3;easy,a;
+Test Problem;1 s;256 MB
+算法标签1;算法标签2
+来源NOIP;2021
+lg1001
