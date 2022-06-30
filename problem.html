@@ -10,14 +10,25 @@
 		<script src="file/script/milmon.js"></script>
 		<script src="file/script/mdui.min.js"></script>
 		<script>
+			function gettags(texts,color){
+				var result="";
+				for(var i=0;i<texts.length;i++){
+					if(i)result=result+"&nbsp;";
+					result=result+"<span class='tag' style='background: "+color+";'>"+texts[i]+"</span>";
+				}
+				return result;
+			}
 			loadfile("problem/"+getParam("id")+"/config.txt",function(text){
 				$("title").innerHTML=getParam("id")+". "+
 					text.split("\n")[0].split(";")[0]+" - Milmon Problem";
 				$("problemtitle").innerHTML=getParam("id")+". "+text.split("\n")[0].split(";")[0];
 				var config="<p>";
 				config=config+"时间限制："+text.split("\n")[0].split(";")[1];
-				config=config+"&nbsp;&nbsp;空间限制："+text.split("\n")[0].split(";")[2];
+				config=config+"&nbsp;&nbsp;&nbsp;&nbsp;空间限制："+text.split("\n")[0].split(";")[2];
 				config=config+"</p>";
+				config=config+gettags(text.split("\n")[1],"#14558f");
+				if(text.split("\n")[1].length)config=config+"&nbsp;";
+				config=config+gettags(text.split("\n")[2],"#22700a");
 				$("config-div").innerHTML=config;
 			});
 			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
