@@ -1,3 +1,4 @@
-On Sum of Fractions;1 s;256 MB
+On Sum of Fractions;2 s;250 MB
 数学;素数
 CodeForces
+CF396B;LGCF396B
