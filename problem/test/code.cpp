@@ -2,6 +2,6 @@
 using namespace std;
 
 int main(){
-    cout<<"I AK IOI"<<endl;
+    cout<<"Hank0402 always AK IOI."<<endl;
     return 0;
 }
