@@ -1,3 +1,1 @@
-## 123456
-
-$\text{It's easy.}$
+Hank0402 is very easy to JC.
