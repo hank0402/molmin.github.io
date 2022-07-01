@@ -1,4 +1,4 @@
-Test Problem;1 s;256 MB
-算法标签1;算法标签2
-来源NOIP;2021
-lg1001
+Hank's Problem;hank s;0402 MB
+BDFS;Hank Algorithm
+IOI;2023
+LGP1001
