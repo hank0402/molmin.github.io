@@ -1,4 +1,4 @@
 Xor-Paths;3 s;250 MB;5
-ËÑË÷;Ë«ÏòËÑË÷ (Meet in the middle);±©Á¦;Î»ÔËËã
+æœç´¢;åŒå‘æœç´¢ (Meet in the middle);æš´åŠ›;ä½è¿ç®—
 CodeForces
 LGCF1006E;CF1006E
