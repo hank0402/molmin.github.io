@@ -41,15 +41,6 @@
 				config=config+"&nbsp;";
 				config=config+gettags(text.split("\n")[2].split(";"),"#22700a");
 				config=config+"&nbsp;"+difficulty(text.split("\n")[0].split(";")[3]);
-				config=config+"&nbsp;"+difficulty(0);
-				config=config+"&nbsp;"+difficulty(1);
-				config=config+"&nbsp;"+difficulty(2);
-				config=config+"&nbsp;"+difficulty(3);
-				config=config+"&nbsp;"+difficulty(4);
-				config=config+"&nbsp;"+difficulty(5);
-				config=config+"&nbsp;"+difficulty(6);
-				config=config+"&nbsp;"+difficulty(7);
-				config=config+"&nbsp;"+difficulty(8);
 				$("config-div").innerHTML=config;
 			});
 			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
