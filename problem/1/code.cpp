@@ -1,6 +1,6 @@
 // 2022.06.30
 
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int T,n;
