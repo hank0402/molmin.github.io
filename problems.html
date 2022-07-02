@@ -20,9 +20,9 @@
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div>'+
 						'<div class="mdui-row problemsearch-problem" onclick="window.location.href=\'/problem?id='+
 						tmp[0]+'\';"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
-					htmlcode=htmlcode+'<div class="mdui-col-xs-6"><p>'+tmp[1]+'</p></div><div class="mdui-col-xs-4">'+
+					htmlcode=htmlcode+'<div class="mdui-col-xs-4"><p>'+tmp[1]+'</p></div><div class="mdui-col-xs-5">'+
 						'<p class="problemsearch-algorithmtag">'+gettags(tmp[3].split(";"),"#14558f")+'&nbsp;'+
-						gettags(tmp[4].split(";"),"#22700a")+'</p></div><div class="mdui-col-xs-1">'+
+						gettags(tmp[4].split(";"),"#22700a")+'</p></div><div class="mdui-col-xs-2">'+
 						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
 				}
 				$("problems-div").innerHTML=htmlcode;
@@ -78,13 +78,13 @@
 					<div class="mdui-col-xs-1">
 						<p class="problemsearch-pid"><strong>题目编号</strong></p>
 					</div>
-					<div class="mdui-col-xs-6">
+					<div class="mdui-col-xs-4">
 						<p><strong>标题</strong></p>
 					</div>
-					<div class="mdui-col-xs-4">
+					<div class="mdui-col-xs-5">
 						<p class="problemsearch-algorithmtag"><strong>标签</strong></p>
 					</div>
-					<div class="mdui-col-xs-1">
+					<div class="mdui-col-xs-2">
 						<p class="problemsearch-difficultytag"><strong>难度</strong></p>
 					</div>
 				</div>
