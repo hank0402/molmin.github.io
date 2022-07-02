@@ -1,4 +1,4 @@
 1|On Sum of Fractions|4|数学;素数|CodeForces|CF396B
 2|Two Paths|5|图论;欧拉路|CodeForces|CF36E
 4|Xor-Paths|5|搜索;双向搜索;暴力;位运算|CodeForces|CF1006E
-5|移动石子|6|博弈论;数学|原创|LGU217623
+5|移动石子|6|博弈论;数学|本地题/模拟赛题/原创题|LGU217623
