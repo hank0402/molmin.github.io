@@ -1,3 +1,3 @@
-1|On Sum of Fractions|4|数学;素数|CodeForces|CF396B;CF397D;LGCF396B
-2|Two Paths|5|图论;欧拉路|CodeForces|CF36E;LGCF36E
-4|Xor-Paths|5|搜索;双向搜索 (Meet in the middle);暴力;位运算|CodeForces|LGCF1006E;CF1006E
+1|On Sum of Fractions|4|数学;素数|CodeForces|CF396B
+2|Two Paths|5|图论;欧拉路|CodeForces|CF36E
+4|Xor-Paths|5|搜索;双向搜索 (Meet in the middle);暴力;位运算|CodeForces|CF1006E
