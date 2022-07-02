@@ -25,8 +25,7 @@
 						gettags(tmp[4].split(";"),"#22700a")+'</p></div><div class="mdui-col-xs-1">'+
 						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
 				}
-				console.log(htmlcode);
-				$("problems-div")=htmlcode;
+				$("problems-div").innerHTML=htmlcode;
 			});
 		</script>
 	</head>
