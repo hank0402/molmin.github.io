@@ -44,3 +44,19 @@
 	border-radius: 3px;
 	color: white;
 }
+
+.problemsearch-problem{
+	background: white;
+}
+.problemsearch-problem:hover{
+	background: #efefef;
+}
+.problemsearch-pid{
+	text-align: center;
+}
+.problemsearch-algorithmtag{
+	text-align: right;
+}
+.problemsearch-difficultytag{
+	text-align: center;
+}
