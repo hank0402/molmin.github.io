@@ -25,8 +25,11 @@
 输出一行后，建议清空缓冲区：
 
 - 在 C++ 中，使用 `fflush(stdout)` 或 `cout.flush()`。
+- 
 - 在 Pascal 中，使用 `flush(output)`。
+- 
 - 在 Python 中，使用 `stdout.flush()`。
+- 
 - 其它语言请自行查阅文档。
 
 ## 【样例交互】
