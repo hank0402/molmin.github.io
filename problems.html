@@ -12,6 +12,20 @@
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
 			loadfile("problem/config.txt",function(text){
+				var pros=text.split("\n");
+				var htmlcode="";
+				for(var i=0;i<pros.length;i++){
+					if(pros[i].length<5)continue;
+					var tmp=pros[i].split('|');
+					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div>'+
+						'<div class="mdui-row problemsearch-problem" onclick="window.location.href=\'/problem?id='+
+						tmp[0]+'\';"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
+					htmlcode=htmlcode+'<div class="mdui-col-xs-6"><p>'+tmp[1]+'</p></div><div class="mdui-col-xs-4">'+
+						'<p class="problemsearch-algorithmtag">'+gettags(tmp[3].split(";"),"#14558f")+'&nbsp;'+
+						gettags(tmp[4].split(";"),"#22700a")+'</p></div><div class="mdui-col-xs-1">'+
+						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
+				}
+				$("problems-div")=htmlcode;
 			});
 		</script>
 	</head>
@@ -68,27 +82,13 @@
 						<p><strong>标题</strong></p>
 					</div>
 					<div class="mdui-col-xs-4">
-						<p class="problemsearch-algorithmtag"><strong>算法标签</strong></p>
+						<p class="problemsearch-algorithmtag"><strong>标签</strong></p>
 					</div>
 					<div class="mdui-col-xs-1">
 						<p class="problemsearch-difficultytag"><strong>难度</strong></p>
 					</div>
 				</div>
-				<div class="mdui-divider mdui-m-y-0"></div>
-				<div class="mdui-row problemsearch-problem" onclick="window.location.href='/problem?id=1';">
-					<div class="mdui-col-xs-1">
-						<p style="text-align: center;">1</p>
-					</div>
-					<div class="mdui-col-xs-6">
-						<p>qwq</p>
-					</div>
-					<div class="mdui-col-xs-4">
-						<p class="problemsearch-algorithmtag">qwq</p>
-					</div>
-					<div class="mdui-col-xs-1">
-						<p class="problemsearch-difficultytag">qwq</p>
-					</div>
-				</div>
+				<div id="problems-div"></div>
 			</div>
         </div>
 
