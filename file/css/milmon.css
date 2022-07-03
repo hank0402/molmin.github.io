@@ -59,6 +59,9 @@
 .problemsearch-pid{
 	text-align: center;
 }
+.problemsearch-title{
+	cursor: pointer;
+}
 .problemsearch-algorithmtag{
 	text-align: right;
 }
