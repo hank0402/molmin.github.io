@@ -41,6 +41,7 @@
 				var tagsets=text.split("\n"),htmlcode="";
 				for(var i=0;i<tagsets.length;i++){
 					var tags=tagsets[i].split(";");
+					if(tags.length==1)continue;
 					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tags[0]+'</p><p style="line-height: 30px;">';
 					for(var j=0;j<tags.length;j++){
 						if(tags[j]=="其他")continue;
