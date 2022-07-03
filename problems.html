@@ -35,8 +35,8 @@
 
 				}
 			});
-			var searchdiff=9,diffcolor=["","#bfbfbf","#fe4c61","#f39c11","#ffc116",
-										"#52c41a","#3498db","#9d3dcf","#11207e","#052242"];
+			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
+										"#3498db","#9d3dcf","#11207e","#052242","purple"];
 			function choosedifficulty(d){
 				$("difficulty-"+String(searchdiff)).setAttribute("style","");
 				searchdiff=d;
@@ -107,7 +107,14 @@
 					<div class="mdui-col-xs-10">
 						<span class='problemsearch-difficulty' id="difficulty-9" style="background: purple; color: white;" onclick="choosedifficulty(9);">全部</span>
 						<span class='problemsearch-difficulty' id="difficulty-0" onclick="choosedifficulty(0);">暂未评定</span>
-						<span class='problemsearch-difficulty' id="difficulty-1" onclick="choosedifficulty(1);">IOI</span>
+						<span class='problemsearch-difficulty' id="difficulty-1" onclick="choosedifficulty(1);">入门</span>
+						<span class='problemsearch-difficulty' id="difficulty-2" onclick="choosedifficulty(2);">普及-</span>
+						<span class='problemsearch-difficulty' id="difficulty-3" onclick="choosedifficulty(3);">普及/提高-</span>
+						<span class='problemsearch-difficulty' id="difficulty-4" onclick="choosedifficulty(4);">普及+/提高</span>
+						<span class='problemsearch-difficulty' id="difficulty-5" onclick="choosedifficulty(5);">提高+/省选-</span>
+						<span class='problemsearch-difficulty' id="difficulty-6" onclick="choosedifficulty(6);">省选/NOI-</span>
+						<span class='problemsearch-difficulty' id="difficulty-7" onclick="choosedifficulty(7);">NOI/NOI+</span>
+						<span class='problemsearch-difficulty' id="difficulty-8" onclick="choosedifficulty(8);">CTSC/IOI</span>
 					</div>
 				</div>
 				<br>
