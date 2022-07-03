@@ -54,6 +54,20 @@
 	cursor: pointer;
 	line-height: 17.25px;
 }
+.problemsearch-selector-alg{
+	background: #14558f;
+	color: white;
+}
+.problemsearch-notselector-alg{
+	background: white;
+	color: #14558f;
+	border: 1px solid #14558f;
+}
+.problemsearch-notselector-alg:hover{
+	background: #efefef;
+	color: #14558f;
+	border: 1px solid #14558f;
+}
 
 .problemsearch-problem{
 	background: white;
