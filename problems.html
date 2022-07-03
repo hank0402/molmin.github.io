@@ -11,7 +11,7 @@
 		<script src="/file/script/problem.js"></script>
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
-			var problems;
+			var problems,tags;
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
 			function searchproblems(){
@@ -30,7 +30,9 @@
 						'</p></div><div class="mdui-col-xs-2"><p class="problemsearch-difficultytag">'    +
 						difficulty(tmp[2])+'</p></div></div>';
 				}
-				if(htmlcode=="")$("problems-div").innerHTML='<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-12"><p style="text-align: center;">不存在符合条件的题目</p></div></div>';
+				if(htmlcode=="")$("problems-div").innerHTML='<div class="mdui-divider mdui-m-y-0"></div><'+
+						'div class="mdui-row"><div class="mdui-col-xs-12"><p style="text-align: center;">'+
+						'不存在符合条件的题目</p></div></div>';
 				else $("problems-div").innerHTML=htmlcode;
 			}
 			loadfile("/problem/config.txt",function(text){
@@ -40,12 +42,16 @@
 			loadfile("/problem/tags.txt",function(text){
 				var tagsets=text.split("\n"),htmlcode="";
 				for(var i=0;i<tagsets.length;i++){
-					var tags=tagsets[i].split(";");
-					if(tags.length==1)continue;
-					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tags[0]+'</p><p style="line-height: 30px;">';
-					for(var j=0;j<tags.length;j++){
-						if(tags[j]=="其他")continue;
-						htmlcode=htmlcode+'<span class="tag problemsearch-tagselector" style="background: #14558f;">'+tags[j]+'</span>&nbsp;';
+					var tag=tagsets[i].split(";");
+					if(tag.length==1)continue;
+					tags[i]=tag;
+					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tag[0]+'</p>';
+					htmlcode=htmlcode+'<p style="line-height: 30px;">';
+					for(var j=0;j<tag.length;j++){
+						if(tag[j]=="其他")continue;
+						htmlcode=htmlcode+'<span class="tag problemsearch-tagselector" id="algorithmtag-'+
+							i+'-'+j+'" onclick="choosealgorithmtag('+i+','+j+')" style="background: #145'+
+							'58f;">'+tag[j]+'</span>&nbsp;&nbsp;';
 					}
 					htmlcode=htmlcode+'</p>';
 				}
@@ -56,6 +62,9 @@
 				searchdiff=d;
 				$("difficulty-"+String(searchdiff)).setAttribute("style","background: "+diffcolor[d]+"; color: white;");
 				searchproblems();
+			}
+			function choosealgorithmtag(x,y){
+				
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
