@@ -35,8 +35,12 @@
 
 				}
 			});
+
+			var choosetagstab=new mdui.Tab("#choosetags-typetab");
+			$("choosetags-typetab").on('open.mdui.dialog',function(){
+				choosetagstab.handleUpdate();
+			});
 			function opentagselector(){
-				mdui.mutation();
 			}
 		</script>
 	</head>
@@ -137,7 +141,7 @@
         </div>
 
 		<div class="mdui-dialog" id="choosetags">
-			<div class="mdui-tab" mdui-tab>
+			<div class="mdui-tab" id="choosetags-typetab" mdui-tab>
 				<a href="#example1-tab1" class="mdui-ripple">web</a>
 				<a href="#example1-tab2" class="mdui-ripple">shopping</a>
 				<a href="#example1-tab3" class="mdui-ripple">images</a>
