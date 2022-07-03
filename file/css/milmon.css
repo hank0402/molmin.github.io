@@ -49,6 +49,10 @@
 	cursor: pointer;
 	font-size: 20px;
 }
+.problemsearch-tagselector{
+	line-height: 30px;
+	display: inline-block;
+}
 
 .problemsearch-problem{
 	background: white;
