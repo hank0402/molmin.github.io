@@ -19,9 +19,9 @@
 					if(problems[i].length<5)continue;
 					var tmp=problems[i].split('|');
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div>'+
-						'<div class="mdui-row problemsearch-problem" onclick="window.location.href=\'/problem?id='+
-						tmp[0]+'\';"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
-					htmlcode=htmlcode+'<div class="mdui-col-xs-4"><p>'+tmp[1]+'</p></div><div class="mdui-col-xs-5">'+
+						'<div class="mdui-row problemsearch-problem"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
+					htmlcode=htmlcode+'<div class="mdui-col-xs-4" onclick="window.location.href=\'/problem?id='+
+						tmp[0]+'\';"><p>'+tmp[1]+'</p></div><div class="mdui-col-xs-5">'+
 						'<p class="problemsearch-algorithmtag">'+gettags(tmp[3].split(";"),"#14558f")+'&nbsp;'+
 						gettags(tmp[4].split(";"),"#22700a")+'</p></div><div class="mdui-col-xs-2">'+
 						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
