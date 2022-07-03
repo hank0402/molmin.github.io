@@ -91,7 +91,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit">edit</font>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#exampleDialog'}">edit</font>
 					</div>
 				</div>
 				<br>
@@ -125,6 +125,14 @@
 			</div>
         </div>
 
+		<div class="mdui-dialog" id="exampleDialog">
+			<div class="mdui-dialog-title">Are you sure?</div>
+			<div class="mdui-dialog-content">You'll lose all photos and media!</div>
+			<div class="mdui-dialog-actions">
+			  <button class="mdui-btn mdui-ripple" mdui-dialog-close>cancel</button>
+			  <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>erase</button>
+			</div>
+		  </div>
 		<br><br>
 		<!-- -----------联系方式-------------- -->
 
