@@ -35,13 +35,6 @@
 
 				}
 			});
-
-			var choosetagstab=new mdui.Tab("#choosetags-typetab");
-			mdui.$("#choosetags-typetab").on('open.mdui.dialog',function(){
-				choosetagstab.handleUpdate();
-			});
-			function opentagselector(){
-			}
 		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
@@ -102,7 +95,26 @@
 				<br>
 				<div class="mdui-row">
 					<div class="mdui-col-xs-2" style="text-align: right;">
-						<b>标签</b>
+						<b>难度</b>
+					</div>
+					<div class="mdui-col-xs-10">
+						<span class='tag' id="difficulty-9" onclick="choose(9);">全部</span>
+						<span class='tag' id="difficulty-0" onclick="choose(0);">暂未评定</span>
+						<span class='tag' id="difficulty-1" onclick="choose(1);">IOI</span>
+					</div>
+				</div>
+				<div class="mdui-row">
+					<div class="mdui-col-xs-2" style="text-align: right;">
+						<b>算法标签</b>
+					</div>
+					<div class="mdui-col-xs-10">
+						<div id="problemsearch-tags"></div>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosetags'}" onclick="opentagselector();">edit</font>
+					</div>
+				</div>
+				<div class="mdui-row">
+					<div class="mdui-col-xs-2" style="text-align: right;">
+						<b>来源标签</b>
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
@@ -141,14 +153,6 @@
         </div>
 
 		<div class="mdui-dialog" id="choosetags">
-			<div class="mdui-tab" id="choosetags-typetab" mdui-tab>
-				<a href="#example1-tab1" class="mdui-ripple">web</a>
-				<a href="#example1-tab2" class="mdui-ripple">shopping</a>
-				<a href="#example1-tab3" class="mdui-ripple">images</a>
-			</div>
-			<div id="example1-tab1" class="mdui-p-a-2">web content</div>
-			<div id="example1-tab2" class="mdui-p-a-2">shopping content</div>
-			<div id="example1-tab3" class="mdui-p-a-2">images content</div>
 			<div class="mdui-dialog-actions">
 				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
 			</div>
