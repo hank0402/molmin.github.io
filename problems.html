@@ -12,12 +12,12 @@
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
 			var problems,tags;
-			loadfile("/problem/config.txt",function(text){
-				problems=text.split("\n");
+			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
+										"#3498db","#9d3dcf","#11207e","#052242","purple"];
+			function updateproblems(display){
 				var htmlcode="";
-				for(var i=0;i<problems.length;i++){
-					if(problems[i].length<5)continue;
-					var tmp=problems[i].split('|');
+				for(var t=0;t<display.length;t++){
+					var i=display[t],tmp=problems[i].split('|');
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div>'+
 						'<div class="mdui-row problemsearch-problem"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
 					htmlcode=htmlcode+'<div class="mdui-col-xs-4" onclick="window.location.href=\'/problem?id='+
@@ -27,6 +27,12 @@
 						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
 				}
 				$("problems-div").innerHTML=htmlcode;
+			}
+			loadfile("/problem/config.txt",function(text){
+				problems=text.split("\n");
+				var tmp;
+				for(var i=0;i<problems.length;i++)tmp[i]=i;
+				updateproblems(tmp);
 			});
 			loadfile("/problem/tags.txt",function(text){
 				var tagsets=text.split("\n");
@@ -35,8 +41,6 @@
 
 				}
 			});
-			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
-										"#3498db","#9d3dcf","#11207e","#052242","purple"];
 			function choosedifficulty(d){
 				$("difficulty-"+String(searchdiff)).setAttribute("style","");
 				searchdiff=d;
