@@ -50,9 +50,9 @@
 					htmlcode=htmlcode+'<p style="line-height: 30px;">';
 					for(var j=0;j<tag.length;j++){
 						if(tag[j]=="其他")continue;
-						htmlcode=htmlcode+'<span class="tag problemsearch-tagselector" id="algorithmtag-'+
-							String(i*1000+j)+'" onclick="choosealgorithmtag('+String(i*1000+j)+')" style'+
-							'="background: #14558f;">'+tag[j]+'</span>&nbsp;&nbsp;';
+						htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-notse'+
+							'lector-alg" id="algorithmtag-'+String(i*1000+j)+'" onclick="choosealgorithmt'+
+							'ag('+String(i*1000+j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
 					}
 					htmlcode=htmlcode+'</p>';
 				}
@@ -67,13 +67,13 @@
 			function choosealgorithmtag(tagid){
 				if(algorithmtags.has(tagid)){
 					algorithmtags.delete(tagid);
-					$("algorithmtags-"+String(tagid)).removeClass("problemsearch-selector-alg");
-					$("algorithmtags-"+String(tagid)).addClass("problemsearch-notselector-alg");
+					$("algorithmtag-"+String(tagid)).removeClass("problemsearch-selector-alg");
+					$("algorithmtag-"+String(tagid)).addClass("problemsearch-notselector-alg");
 				}
 				else{
 					algorithmtags.add(tagid);
-					$("algorithmtags-"+String(tagid)).removeClass("problemsearch-notselector-alg");
-					$("algorithmtags-"+String(tagid)).addClass("problemsearch-selector-alg");
+					$("algorithmtag-"+String(tagid)).removeClass("problemsearch-notselector-alg");
+					$("algorithmtag-"+String(tagid)).addClass("problemsearch-selector-alg");
 				}
 			}
 			window.onload=function(){
