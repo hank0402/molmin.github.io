@@ -28,7 +28,8 @@
 						gettags(tmp[4].split(";"),"#22700a")+'</p></div><div class="mdui-col-xs-2">'+
 						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
 				}
-				$("problems-div").innerHTML=htmlcode;
+				if(htmlcode=="")$("problems-div").innerHTML=
+				$("problems-div").innerHTML='<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-12"><p style="text-align: center;">加载中 ...</p></div></div>';
 			}
 			loadfile("/problem/config.txt",function(text){
 				problems=text.split("\n");
