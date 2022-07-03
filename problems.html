@@ -14,10 +14,11 @@
 			var problems,tags;
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
-			function updateproblems(display){
+			function searchproblems(){
 				var htmlcode="";
-				for(var t=0;t<display.length;t++){
-					var i=display[t],tmp=problems[i].split('|');
+				for(var i=0;i<problems.length;i++){
+					var tmp=problems[i].split('|');
+					if(!(searchdiff==9||tmp[2]==searchdiff))continue;
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div>'+
 						'<div class="mdui-row problemsearch-problem"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
 					htmlcode=htmlcode+'<div class="mdui-col-xs-4" onclick="window.location.href=\'/problem?id='+
@@ -30,9 +31,7 @@
 			}
 			loadfile("/problem/config.txt",function(text){
 				problems=text.split("\n");
-				var tmp;
-				for(var i=0;i<problems.length;i++)tmp[i]=i;
-				updateproblems(tmp);
+				searchproblems();
 			});
 			loadfile("/problem/tags.txt",function(text){
 				var tagsets=text.split("\n");
