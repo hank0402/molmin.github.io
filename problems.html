@@ -14,6 +14,7 @@
 			var problems,tags=[];
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
+			var algorithmtags=new Set();
 			function searchproblems(){
 				var htmlcode="";
 				for(var i=0;i<problems.length;i++){
@@ -50,8 +51,8 @@
 					for(var j=0;j<tag.length;j++){
 						if(tag[j]=="其他")continue;
 						htmlcode=htmlcode+'<span class="tag problemsearch-tagselector" id="algorithmtag-'+
-							i+'-'+j+'" onclick="choosealgorithmtag('+i+','+j+')" style="background: #145'+
-							'58f;">'+tag[j]+'</span>&nbsp;&nbsp;';
+							i*1000+j+'" onclick="choosealgorithmtag('+i*1000+j+')" style="background: #1'+
+							'4558f;">'+tag[j]+'</span>&nbsp;&nbsp;';
 					}
 					htmlcode=htmlcode+'</p>';
 				}
@@ -63,8 +64,17 @@
 				$("difficulty-"+String(searchdiff)).setAttribute("style","background: "+diffcolor[d]+"; color: white;");
 				searchproblems();
 			}
-			function choosealgorithmtag(x,y){
-
+			function choosealgorithmtag(tagid){
+				if(algorithmtags.has(tagid)){
+					algorithmtags.delete(tagid);
+					$("algorithmtags-"+String(tagid)).removeClass("problemsearch-selector-alg");
+					$("algorithmtags-"+String(tagid)).addClass("problemsearch-notselector-alg");
+				}
+				else{
+					algorithmtags.add(tagid);
+					$("algorithmtags-"+String(tagid)).removeClass("problemsearch-notselector-alg");
+					$("algorithmtags-"+String(tagid)).addClass("problemsearch-selector-alg");
+				}
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
