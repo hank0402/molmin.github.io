@@ -15,6 +15,11 @@
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
 			var algorithmtags=new Set();
+			
+			function gettagname(id){
+				return tags[parseInt(id/1000)][id%1000];
+			}
+
 			function searchproblems(){
 				var htmlcode="";
 				for(var i=0;i<problems.length;i++){
@@ -75,6 +80,12 @@
 					$("algorithmtag-"+String(tagid)).classList.remove("problemsearch-notselector-alg");
 					$("algorithmtag-"+String(tagid)).classList.add("problemsearch-selector-alg");
 				}
+				var htmlcode="";
+				for(var i of algorithmtags.values()){
+					htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-selector-'+
+						'alg" onclick="choosealgorithmtag('+String(i)+')">'+gettagname(i)+'</span>&nbsp;';
+				}
+				$("problemsearch-tags").innerHTML=htmlcode;
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
