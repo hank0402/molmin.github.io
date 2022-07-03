@@ -43,8 +43,10 @@
 				$("difficulty-"+String(searchdiff)).setAttribute("style","background: "+diffcolor[d]+"; color: white;");
 				searchproblems();
 			}
-			if(getParam("difficulty")!=null)
-				choosedifficulty(Number(getParam("difficulty")));
+			window.onload=function(){
+				if(getParam("difficulty")!=null)
+					choosedifficulty(Number(getParam("difficulty")));
+			}
 		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
