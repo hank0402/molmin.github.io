@@ -85,7 +85,9 @@
 					htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-selector-'+
 						'alg" onclick="choosealgorithmtag('+String(i)+')">'+gettagname(i)+'</span>&nbsp;';
 				}
-				$("problemsearch-tags").innerHTML=htmlcode;
+				$("problemsearch-tags").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-icon ma'+
+					'terial-icons problemsearch-tags-edit" mdui-dialog="{target: \'#choosealgorithmtags\''+
+					'}">edit</font>';
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
@@ -189,8 +191,9 @@
 						<b>算法标签</b>
 					</div>
 					<div class="mdui-col-xs-10">
-						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosealgorithmtags'}">edit</font>
+						<div id="problemsearch-tags">
+							<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosealgorithmtags'}">edit</font>
+						</div>
 					</div>
 				</div>
 				<br>
