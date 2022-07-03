@@ -41,7 +41,10 @@
 				$("difficulty-"+String(searchdiff)).setAttribute("style","");
 				searchdiff=d;
 				$("difficulty-"+String(searchdiff)).setAttribute("style","background: "+diffcolor[d]+"; color: white;");
+				searchproblems();
 			}
+			if(getParam("difficulty")!=null)
+				choosedifficulty(ParseInt(getParam("difficulty")));
 		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
