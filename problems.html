@@ -52,6 +52,7 @@
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
+				mdui.updateTextFields();
 				if(getParam("difficulty")!=null)
 					choosedifficulty(Number(getParam("difficulty")));
 			}
@@ -109,7 +110,7 @@
 					</div>
 					<div class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-9">
 						<label class="mdui-textfield-label">搜索标题</label>
-						<input class="mdui-textfield-input" id="problemsearch-title">
+						<input class="mdui-textfield-input" id="problemsearch-title" onchange="searchproblems();">
 					</div>
 				</div>
 				<br>
