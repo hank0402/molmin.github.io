@@ -35,6 +35,13 @@
 
 				}
 			});
+			var searchdiff=9,diffcolor=["","#bfbfbf","#fe4c61","#f39c11","#ffc116",
+										"#52c41a","#3498db","#9d3dcf","#11207e","#052242"];
+			function choosedifficulty(d){
+				$("difficulty-"+String(searchdiff)).setAttribute("style","");
+				searchdiff=d;
+				$("difficulty-"+String(searchdiff)).setAttribute("style","background: "+diffcolor[d]+"; color: white;");
+			}
 		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
@@ -98,9 +105,9 @@
 						<b>难度</b>
 					</div>
 					<div class="mdui-col-xs-10">
-						<span class='problemsearch-difficulty-choose' id="difficulty-9" onclick="choose(9);">全部</span>
-						<span class='problemsearch-difficulty' id="difficulty-0" onclick="choose(0);">暂未评定</span>
-						<span class='problemsearch-difficulty' id="difficulty-1" onclick="choose(1);">IOI</span>
+						<span class='problemsearch-difficulty' id="difficulty-9" style="background: purple; color: white;" onclick="choosedifficulty(9);">全部</span>
+						<span class='problemsearch-difficulty' id="difficulty-0" onclick="choosedifficulty(0);">暂未评定</span>
+						<span class='problemsearch-difficulty' id="difficulty-1" onclick="choosedifficulty(1);">IOI</span>
 					</div>
 				</div>
 				<br>
