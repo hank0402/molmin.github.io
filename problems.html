@@ -11,7 +11,7 @@
 		<script src="/file/script/problem.js"></script>
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
-			var problems,tags;
+			var problems,tags=[];
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
 			function searchproblems(){
@@ -64,7 +64,7 @@
 				searchproblems();
 			}
 			function choosealgorithmtag(x,y){
-				
+
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
@@ -169,7 +169,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosealgorithmtags'}" onclick="opentagselector();">edit</font>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosealgorithmtags'}">edit</font>
 					</div>
 				</div>
 				<br>
@@ -179,7 +179,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosesourcetags'}" onclick="opentagselector();">edit</font>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosesourcetags'}">edit</font>
 					</div>
 				</div>
 				<br>
