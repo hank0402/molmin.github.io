@@ -11,7 +11,7 @@
 		<script src="/file/script/problem.js"></script>
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
-			var problems,tags;
+			var problems;
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
 			function searchproblems(){
@@ -38,11 +38,16 @@
 				searchproblems();
 			});
 			loadfile("/problem/tags.txt",function(text){
-				var tagsets=text.split("\n");
+				var tagsets=text.split("\n"),html="";
 				for(var i=0;i<tagsets;i++){
-					tags[i]=tagsets[i].split(";");
-
+					var tags=tagsets[i].split(";");
+					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tags[0]+'</p>';
+					for(var j=0;j<tags.length;j++){
+						if(tags[j]=="其他")continue;
+						htmlcode=htmlcode+'<span class="tag" style="background: #14558f;">'+tags[j]+'</span>&nbsp;';
+					}
 				}
+				$("problemsearch-maychoosetags").innerHTML=htmlcode;
 			});
 			function choosedifficulty(d){
 				$("difficulty-"+String(searchdiff)).setAttribute("style","");
@@ -99,6 +104,23 @@
 			</ul>
 		</div>
 
+		<!-- ---------- 对话框 ---------- -->
+		<div class="mdui-dialog" id="choosealgorithmtags" style="padding: 8px;">
+			<br>
+			<div id="problemsearch-maychoosetags"></div>
+			<div class="mdui-dialog-actions">
+				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
+			</div>
+		</div>
+		<br><br>
+
+		<div class="mdui-dialog" id="choosealgorithmtags">
+			<div class="mdui-dialog-actions">
+				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
+			</div>
+		</div>
+		<br><br>
+
         <!-- ---------- Problem ---------- -->
 		<br><br><br><br><br><br>
 		<div class="mdui-container mdui-shadow-5" style="background: white;">
@@ -138,7 +160,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosetags'}" onclick="opentagselector();">edit</font>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosealgorithmtags'}" onclick="opentagselector();">edit</font>
 					</div>
 				</div>
 				<br>
@@ -148,7 +170,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosetags'}" onclick="opentagselector();">edit</font>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosesourcetags'}" onclick="opentagselector();">edit</font>
 					</div>
 				</div>
 				<br>
@@ -182,12 +204,6 @@
 			</div>
         </div>
 
-		<div class="mdui-dialog" id="choosetags">
-			<div class="mdui-dialog-actions">
-				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
-			</div>
-		</div>
-		<br><br>
 		<!-- -----------联系方式-------------- -->
 
 		<footer style="background:#444;">
