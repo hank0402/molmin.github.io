@@ -45,6 +45,11 @@
 	color: white;
 }
 
+.problemsearch-tags-edit{
+	cursor: pointer;
+	font-size: 20px;
+}
+
 .problemsearch-problem{
 	background: white;
 }
