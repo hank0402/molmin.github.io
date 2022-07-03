@@ -50,8 +50,9 @@
 	font-size: 20px;
 }
 .problemsearch-tagselector{
-	line-height: 17.25px;
 	display: inline-block;
+	cursor: pointer;
+	line-height: 17.25px;
 }
 
 .problemsearch-problem{
