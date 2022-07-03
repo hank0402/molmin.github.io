@@ -38,8 +38,8 @@
 				searchproblems();
 			});
 			loadfile("/problem/tags.txt",function(text){
-				var tagsets=text.split("\n"),html="";
-				for(var i=0;i<tagsets;i++){
+				var tagsets=text.split("\n"),htmlcode="";
+				for(var i=0;i<tagsets.length;i++){
 					var tags=tagsets[i].split(";");
 					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tags[0]+'</p>';
 					for(var j=0;j<tags.length;j++){
@@ -112,14 +112,12 @@
 				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
 			</div>
 		</div>
-		<br><br>
 
 		<div class="mdui-dialog" id="choosealgorithmtags">
 			<div class="mdui-dialog-actions">
 				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
 			</div>
 		</div>
-		<br><br>
 
         <!-- ---------- Problem ---------- -->
 		<br><br><br><br><br><br>
@@ -203,6 +201,7 @@
 				</div>
 			</div>
         </div>
+		<br><br>
 
 		<!-- -----------联系方式-------------- -->
 
