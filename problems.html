@@ -35,6 +35,9 @@
 
 				}
 			});
+			function opentagselector(){
+				mdui.mutation();
+			}
 		</script>
 	</head>
 	<body class="mdui-theme-primary-purple" style="background: #B7EEF8;">
@@ -99,7 +102,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#exampleDialog'}">edit</font>
+						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosetags'}" onclick="opentagselector();">edit</font>
 					</div>
 				</div>
 				<br>
@@ -133,7 +136,7 @@
 			</div>
         </div>
 
-		<div class="mdui-dialog" id="exampleDialog">
+		<div class="mdui-dialog" id="choosetags">
 			<div class="mdui-tab" mdui-tab>
 				<a href="#example1-tab1" class="mdui-ripple">web</a>
 				<a href="#example1-tab2" class="mdui-ripple">shopping</a>
