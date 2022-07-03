@@ -11,12 +11,13 @@
 		<script src="/file/script/problem.js"></script>
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
+			var problems,tags;
 			loadfile("/problem/config.txt",function(text){
-				var pros=text.split("\n");
+				problems=text.split("\n");
 				var htmlcode="";
-				for(var i=0;i<pros.length;i++){
-					if(pros[i].length<5)continue;
-					var tmp=pros[i].split('|');
+				for(var i=0;i<problems.length;i++){
+					if(problems[i].length<5)continue;
+					var tmp=problems[i].split('|');
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div>'+
 						'<div class="mdui-row problemsearch-problem" onclick="window.location.href=\'/problem?id='+
 						tmp[0]+'\';"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'+tmp[0]+'</p></div>';
@@ -26,6 +27,13 @@
 						'<p class="problemsearch-difficultytag">'+difficulty(tmp[2])+'</p></div></div>';
 				}
 				$("problems-div").innerHTML=htmlcode;
+			});
+			loadfile("/problem/tags.txt",function(text){
+				var tagsets=text.split("\n");
+				for(var i=0;i<tagsets;i++){
+					tags[i]=tagsets[i].split(";");
+
+				}
 			});
 		</script>
 	</head>
@@ -126,13 +134,18 @@
         </div>
 
 		<div class="mdui-dialog" id="exampleDialog">
-			<div class="mdui-dialog-title">Are you sure?</div>
-			<div class="mdui-dialog-content">You'll lose all photos and media!</div>
-			<div class="mdui-dialog-actions">
-			  <button class="mdui-btn mdui-ripple" mdui-dialog-close>cancel</button>
-			  <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>erase</button>
+			<div class="mdui-tab" mdui-tab>
+				<a href="#example1-tab1" class="mdui-ripple">web</a>
+				<a href="#example1-tab2" class="mdui-ripple">shopping</a>
+				<a href="#example1-tab3" class="mdui-ripple">images</a>
 			</div>
-		  </div>
+			<div id="example1-tab1" class="mdui-p-a-2">web content</div>
+			<div id="example1-tab2" class="mdui-p-a-2">shopping content</div>
+			<div id="example1-tab3" class="mdui-p-a-2">images content</div>
+			<div class="mdui-dialog-actions">
+				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
+			</div>
+		</div>
 		<br><br>
 		<!-- -----------联系方式-------------- -->
 
