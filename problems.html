@@ -19,6 +19,12 @@
 			function gettagname(id){
 				return tags[parseInt(id/1000)][id%1000];
 			}
+			function havetagcheck(alltag,tag){
+				var tags=alltag.split(';');
+				for(var i=0;i<tags.length;i++)
+					if(tags[i]==tag)return true;
+				return false;
+			}
 
 			function searchproblems(){
 				var htmlcode="";
@@ -27,6 +33,10 @@
 					if(tmp.length!=6)continue;
 					if(tmp[1].split($('problemsearch-title').value).length==1)continue;
 					if(!(searchdiff==9||tmp[2]==searchdiff))continue;
+					var flag=false;
+					for(var i of algorithmtags.values())
+						if(havetagcheck(tmp[3],gettagname(i)))flag=true;
+					if(flag)continue;
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row pr'+
 						'oblemsearch-problem"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'   +
 						tmp[0]+'</p></div><div class="mdui-col-xs-4" onclick="window.location.href=\'/pro'+
@@ -92,6 +102,7 @@
 				$("problemsearch-tags-alg").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-ico'+
 					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#choosetags\'}'+
 					'">edit</font>';
+				searchproblems();
 			}
 			function choosesourcetag(tagid){
 				if(sourcetags.has(tagid)){
@@ -112,6 +123,7 @@
 				$("problemsearch-tags-source").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-ico'+
 					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#chooseta'+
 					'gs\'}">edit</font>';
+				searchproblems();
 			}
 			window.onload=function(){
 				$('problemsearch-title').value="";
