@@ -14,7 +14,7 @@
 			var problems,tags=[];
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
-			var algorithmtags=new Set();
+			var algorithmtags=new Set(),sourcetags=new Set();
 			
 			function gettagname(id){
 				return tags[parseInt(id/1000)][id%1000];
@@ -163,15 +163,9 @@
 		</div>
 
 		<!-- ---------- 对话框 ---------- -->
-		<div class="mdui-dialog" id="choosealgorithmtags">
+		<div class="mdui-dialog" id="choosetags">
 			<br>
 			<div id="problemsearch-maychoosetags" class="mdui-dialog-content"></div>
-			<div class="mdui-dialog-actions">
-				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
-			</div>
-		</div>
-
-		<div class="mdui-dialog" id="choosealgorithmtags">
 			<div class="mdui-dialog-actions">
 				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
 			</div>
@@ -216,7 +210,7 @@
 					</div>
 					<div class="mdui-col-xs-10">
 						<div id="problemsearch-tags-alg" style="line-height: 24px;">
-							<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosealgorithmtags'}">edit</font>
+							<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosetags'}">edit</font>
 						</div>
 					</div>
 				</div>
@@ -226,8 +220,9 @@
 						<b>来源标签</b>
 					</div>
 					<div class="mdui-col-xs-10">
-						<div id="problemsearch-tags-source"></div>
-						<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosesourcetags'}">edit</font>
+						<div id="problemsearch-tags-source" style="line-height: 24px;">
+							<font class="mdui-list-item-icon mdui-icon material-icons problemsearch-tags-edit" mdui-dialog="{target: '#choosetags'}">edit</font>
+						</div>
 					</div>
 				</div>
 				<br>
