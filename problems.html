@@ -55,9 +55,13 @@
 					htmlcode=htmlcode+'<p style="line-height: 30px;">';
 					for(var j=0;j<tag.length;j++){
 						if(tag[j]=="其他")continue;
-						htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-notse'+
-							'lector-alg" id="algorithmtag-'+String(i*1000+j)+'" onclick="choosealgorithmt'+
-							'ag('+String(i*1000+j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
+						if(tag[j]=="来源")continue;
+						if(tag[0]=="来源")htmlcode=htmlcode+'<span class="tag problemsearch-tagselector p'+
+							'roblemsearch-notselector-source" id="sourcetag-'+String(j)+'" onclick="choosesource'+
+							'tag('+String(j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
+						else htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-'+
+							'notselector-alg" id="algorithmtag-'+String(i*1000+j)+'" onclick="choosealgor'+
+							'ithmtag('+String(i*1000+j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
 					}
 					htmlcode=htmlcode+'</p>';
 				}
@@ -79,6 +83,26 @@
 					algorithmtags.add(tagid);
 					$("algorithmtag-"+String(tagid)).classList.remove("problemsearch-notselector-alg");
 					$("algorithmtag-"+String(tagid)).classList.add("problemsearch-selector-alg");
+				}
+				var htmlcode="";
+				for(var i of algorithmtags.values()){
+					htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-selector-'+
+						'alg" onclick="choosealgorithmtag('+String(i)+')">'+gettagname(i)+'</span>&nbsp;';
+				}
+				$("problemsearch-tags-alg").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-ico'+
+					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#choosealgorithmta'+
+					'gs\'}">edit</font>';
+			}
+			function choosesourcetag(tagid){
+				if(sourcetags.has(tagid)){
+					sourcetags.delete(tagid);
+					$("sourcetag-"+String(tagid)).classList.remove("problemsearch-selector-source");
+					$("sourcetag-"+String(tagid)).classList.add("problemsearch-notselector-source");
+				}
+				else{
+					sourcetags.add(tagid);
+					$("sourcetag-"+String(tagid)).classList.remove("problemsearch-notselector-source");
+					$("sourcetag-"+String(tagid)).classList.add("problemsearch-selector-source");
 				}
 				var htmlcode="";
 				for(var i of algorithmtags.values()){
