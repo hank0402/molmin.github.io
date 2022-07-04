@@ -90,8 +90,8 @@
 						'alg" onclick="choosealgorithmtag('+String(i)+')">'+gettagname(i)+'</span>&nbsp;';
 				}
 				$("problemsearch-tags-alg").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-ico'+
-					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#choosealgorithmta'+
-					'gs\'}">edit</font>';
+					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#choosetags\'}'+
+					'">edit</font>';
 			}
 			function choosesourcetag(tagid){
 				if(sourcetags.has(tagid)){
@@ -105,12 +105,12 @@
 					$("sourcetag-"+String(tagid)).classList.add("problemsearch-selector-source");
 				}
 				var htmlcode="";
-				for(var i of algorithmtags.values()){
+				for(var i of sourcetags.values()){
 					htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-selector-'+
-						'alg" onclick="choosealgorithmtag('+String(i)+')">'+gettagname(i)+'</span>&nbsp;';
+						'source" onclick="choosesourcetag('+String(i)+')">'+gettagname(i)+'</span>&nbsp;';
 				}
-				$("problemsearch-tags-alg").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-ico'+
-					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#choosealgorithmta'+
+				$("problemsearch-tags-source").innerHTML=htmlcode+'<font class="mdui-list-item-icon mdui-ico'+
+					'n material-icons problemsearch-tags-edit" mdui-dialog="{target: \'#chooseta'+
 					'gs\'}">edit</font>';
 			}
 			window.onload=function(){
