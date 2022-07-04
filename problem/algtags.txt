@@ -8,3 +8,4 @@
 字符串;哈希;字典树;KMP 算法;后缀数组;哈夫曼;最小表示法;AC 自动机;后缀自动机;回文自动机;序列自动机
 计算几何;凸包;扫描线算法;平面最近点对;反演变换
 其他;三分;随机化;离散化;CDQ 分治;莫队算法;分数规划
+来源;洛谷题库;洛谷月赛;CodeForces;AtCoder;SPOJ;UVA;LibreOJ;UOJ;BZOJ;HydroOJ;本地题/模拟赛题/原创题;IOI;集训队;CTSC;NOI;WC;APIO;NOIP-S;NOIP-J;CSP-S;CSP-J;COCI;NOI Online
