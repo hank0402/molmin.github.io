@@ -35,7 +35,7 @@
 					if(!(searchdiff==9||tmp[2]==searchdiff))continue;
 					var flag=false;
 					for(var i of algorithmtags.values())
-						if(havetagcheck(tmp[3],gettagname(i)))flag=true;
+						if(!havetagcheck(tmp[3],gettagname(i)))flag=true;
 					if(flag)continue;
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row pr'+
 						'oblemsearch-problem"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'   +
