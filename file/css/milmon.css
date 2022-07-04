@@ -68,6 +68,20 @@
 	color: #14558f;
 	border: 1px solid #14558f;
 }
+.problemsearch-selector-source{
+	background: #22700a;
+	color: white;
+}
+.problemsearch-notselector-source{
+	background: white;
+	color: #22700a;
+	border: 1px solid #22700a;
+}
+.problemsearch-notselector-source:hover{
+	background: #efefef;
+	color: #22700a;
+	border: 1px solid #22700a;
+}
 
 .problemsearch-problem{
 	background: white;
