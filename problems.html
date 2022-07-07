@@ -11,6 +11,9 @@
 		<script src="/file/script/problem.js"></script>
 		<script src="/file/script/mdui.min.js"></script>
 		<script>
+			function isnumber(x){
+				return (/(^[1-9]\d*$)/.test(x));
+			}
 			var problems,tags=[];
 			var searchdiff=9,diffcolor=["#bfbfbf","#fe4c61","#f39c11","#ffc116","#52c41a",
 										"#3498db","#9d3dcf","#11207e","#052242","purple"];
@@ -33,10 +36,24 @@
 					if(tmp.length!=6)continue;
 					if(tmp[1].split($('problemsearch-title').value).length==1)continue;
 					if(!(searchdiff==9||tmp[2]==searchdiff))continue;
-					var flag=false;
+					var flag=false,flag2;
 					for(var j of algorithmtags.values())
 						if(!havetagcheck(tmp[3],gettagname(j)))flag=true;
 					if(flag)continue;
+					flag=true,flag2=false;
+					for(var j of sourcetags.values())
+						if(isnumber(gettagname(j).split(' ')[0])){
+							if(havetagcheck(tmp[4],gettagname(j)))flag=false;
+							flag2=true;
+						}
+					if(flag2&&flag)continue;
+					flag=true,flag2=false;
+					for(var j of sourcetags.values())
+						if(!isnumber(gettagname(j).split(' ')[0])){
+							if(havetagcheck(tmp[4],gettagname(j)))flag=false;
+							flag2=true;
+						}
+					if(flag2&&flag)continue;
 					htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row pr'+
 						'oblemsearch-problem"><div class="mdui-col-xs-1"><p class="problemsearch-pid">'   +
 						tmp[0]+'</p></div><div class="mdui-col-xs-4" onclick="window.location.href=\'/pro'+
@@ -178,9 +195,6 @@
 		<div class="mdui-dialog" id="choosetags">
 			<br>
 			<div id="problemsearch-maychoosetags" class="mdui-dialog-content"></div>
-			<div class="mdui-dialog-actions">
-				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
-			</div>
 		</div>
 
 		<!-- ---------- Problem ---------- -->
