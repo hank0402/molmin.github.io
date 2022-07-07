@@ -1,3 +1,11 @@
+## 【题目大意】
+
+给定长度为 $n$ 的序列 $s$。
+
+有 $t$ 次询问，每次询问给定 $l,\ r$，求出对于 $l\leq i\leq r$，存在一个 $l\leq k\leq r$，使得 $s_i\nmid s_k$ 的 $i$ 的个数。
+
+$1\leq n,\ t\leq 10^5$，$1\leq s_i\leq 10^9$
+
 ## 【题目描述】
 
 Mole is hungry again. He found one ant colony, consisting of $n$ ants, ordered in a row. Each ant $i$ ( $1<=i<=n$ ) has a strength $s_{i}$ .
