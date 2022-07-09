@@ -72,28 +72,6 @@
 				problems=text.split("\n");
 				searchproblems();
 			});
-			loadfile("/problem/tags.txt",function(text){
-				var tagsets=text.split("\n"),htmlcode="";
-				for(var i=0;i<tagsets.length;i++){
-					var tag=tagsets[i].split(";");
-					if(tag.length==1)continue;
-					tags[i]=tag;
-					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tag[0]+'</p>';
-					htmlcode=htmlcode+'<p style="line-height: 30px;">';
-					for(var j=0;j<tag.length;j++){
-						if(tag[j]=="其他")continue;
-						if(tag[j]=="来源")continue;
-						if(tag[0]=="来源")htmlcode=htmlcode+'<span class="tag problemsearch-tagselector p'+
-							'roblemsearch-notselector-source" id="sourcetag-'+String(j)+'" onclick="choosesource'+
-							'tag('+String(j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
-						else htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-'+
-							'notselector-alg" id="algorithmtag-'+String(i*1000+j)+'" onclick="choosealgor'+
-							'ithmtag('+String(i*1000+j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
-					}
-					htmlcode=htmlcode+'</p>';
-				}
-				$("problemsearch-maychoosetags").innerHTML=htmlcode;
-			});
 			function choosedifficulty(d){
 				$("difficulty-"+String(searchdiff)).setAttribute("style","");
 				searchdiff=d;
@@ -142,6 +120,33 @@
 					'gs\'}">edit</font>';
 				searchproblems();
 			}
+			loadfile("/problem/tags.txt",function(text){
+				var tagsets=text.split("\n"),htmlcode="";
+				for(var i=0;i<tagsets.length;i++){
+					var tag=tagsets[i].split(";");
+					if(tag.length==1)continue;
+					tags[i]=tag;
+					htmlcode=htmlcode+'<p style="font-size: 20px;">'+tag[0]+'</p>';
+					htmlcode=htmlcode+'<p style="line-height: 30px;">';
+					for(var j=0;j<tag.length;j++){
+						if(tag[j]=="其他")continue;
+						if(tag[j]=="来源")continue;
+						if(tag[0]=="来源")htmlcode=htmlcode+'<span class="tag problemsearch-tagselector p'+
+							'roblemsearch-notselector-source" id="sourcetag-'+String(j)+'" onclick="choosesource'+
+							'tag('+String(j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
+						else htmlcode=htmlcode+'<span class="tag problemsearch-tagselector problemsearch-'+
+							'notselector-alg" id="algorithmtag-'+String(i*1000+j)+'" onclick="choosealgor'+
+							'ithmtag('+String(i*1000+j)+')">'+tag[j]+'</span>&nbsp;&nbsp;';
+					}
+					htmlcode=htmlcode+'</p>';
+				}
+				$("problemsearch-maychoosetags").innerHTML=htmlcode;
+                if(getParam("tag")!=null){
+                    var id=getParam("tag");
+                    if(id<1000)choosesourcetag(id);
+                    else choosealgorithmtag(id);
+                }
+			});
 			window.onload=function(){
 				$('problemsearch-title').value="";
 				mdui.updateTextFields();
