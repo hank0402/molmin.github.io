@@ -24,7 +24,7 @@
                     var rank=i;
                     if(score==tmp.split(":")[1])rank=prerank;
                     else prerank=i,score=tmp.split(":")[1];
-                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-4" style="text-align: center;"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+Number(tmp.split(":")[1])/fullscore*100.0+'</p></div></div>';
+                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-4" style="text-align: center;"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+String(parseInt(Number(tmp.split(":")[1])/fullscore*1000.0)/10.0)+'</p></div></div>';
                 }
                 $("exam-rank").innerHTML=htmlcode;
 			});
