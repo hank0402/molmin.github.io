@@ -16,14 +16,15 @@
                 examid=getParam("id");
                 if(getParam("id")==null)examid=0;
                 var data=text.split("\n")[examid];
-                $("exam-title").innerHTML=data.split(";")[0];
+                $("exam-title").innerHTML=data.split(";")[0].split("|")[0];
+                var fullscore=data.split(";")[0].split("|")[1];
                 var htmlcode="",prerank=1,score=0;
                 for(var i=1;i<data.split(";").length;i++){
                     var tmp=data.split(";")[i];
                     var rank=i;
                     if(score==tmp.split(":")[1])rank=prerank;
                     else prerank=i,score=tmp.split(":")[1];
-                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-4" style="text-align: center;"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div></div>';
+                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-4" style="text-align: center;"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+Number(tmp.split(":")[1])/fullscore*100.0+'</p></div></div>';
                 }
                 $("exam-rank").innerHTML=htmlcode;
 			});
