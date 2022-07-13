@@ -11,23 +11,46 @@
 		<script src="../file/script/problem.js"></script>
 		<script src="../file/script/mdui.min.js"></script>
 		<script>
-            var examid;
+            var examid,sub=["代数","数论","组合","几何"],stuname=[],file=[];
+			function getstufile(stu){
+				for(var i=0;i<stuname.length;i++)
+					if(stu==stuname[i])return file[i];
+				return "error;error;error;error;error|";
+			}
+			function getstuid(stu){
+				for(var i=0;i<stuname.length;i++)
+					if(stu==stuname[i])return i;
+				return 0;
+			}
 			loadfile("https://molmin.github.io/skb/data.txt",function(text){
                 examid=getParam("id");
                 if(getParam("id")==null)examid=0;
-                var data=text.split("\n")[examid];
+				console.log(text);
+                var data=text.split("\n\n")[1].split("\n");
+				for(var i=0;i<data.length;i++){
+					if(data[i].length<5)continue;
+					stuname[i]=data[i].split("?")[0];
+					file[i]=data[i].split("?")[1];
+				}
+				data=text.split("\n\n")[0].split("\n")[examid];
+				$("subject-score").innerHTML=sub[data.split(";")[0].split("|")[2]]+"综合分";
                 $("exam-title").innerHTML=data.split(";")[0].split("|")[0];
-                var fullscore=data.split(";")[0].split("|")[1];
+                var fullscore=data.split(";")[1].split(":")[1];
                 var htmlcode="",prerank=1,score=0;
                 for(var i=1;i<data.split(";").length;i++){
                     var tmp=data.split(";")[i];
                     var rank=i;
                     if(score==tmp.split(":")[1])rank=prerank;
                     else prerank=i,score=tmp.split(":")[1];
-                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-4" style="text-align: center;"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-3" style="text-align: center;"><p>'+String(parseInt(Number(tmp.split(":")[1])/fullscore*1000.0)/10.0)+'</p></div></div>';
+                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-1" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-3" style="text-align: center; cursor: pointer;" onclick="studetail('+String(getstuid(tmp.split(":")[0]))+')" mdui-dialog="{target: \'#studentdetail\'}"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(parseInt(Number(tmp.split(":")[1])/fullscore*1000.0)/10.0)+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(getstufile(tmp.split(":")[0]).split(";")[data.split(";")[0].split("|")[2]])+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(getstufile(tmp.split(":")[0]).split("|")[0].split(";")[4])+'</p></div></div>';
                 }
                 $("exam-rank").innerHTML=htmlcode;
 			});
+			function studetail(stuid){
+				$("studentname").innerHTML=stuname[stuid];
+				if(stuname[stuid]=="张芳闻"&&Math.random()<0.333)
+					$("studentname").innerHTML="Feewo";
+			}
 			window.onload=function(){
 			}
 		</script>
@@ -42,7 +65,7 @@
 				<a href="/" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
 					<i class="mdui-icon material-icons" style="color: #fff;">home</i>
 				</a>
-				<span class="mdui-typo-title" style="color: #fff;">Milmon Problem Set</span>
+				<span class="mdui-typo-title" style="color: #fff;">数科班专区 | 考试成绩表</span>
 				<div class="mdui-toolbar-spacer"></div>
 				<a href="" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
 					<i class="mdui-icon material-icons" style="color: #fff;">refresh</i>
@@ -62,7 +85,7 @@
 					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">library_books</i>
 					<div class="mdui-list-item-content">博文列表</div>
 				</a>
-				<a class="mdui-list-item mdui-ripple mdui-list-item-active" href="/problems">
+				<a class="mdui-list-item mdui-ripple" href="/problems">
 					<i class="mdui-list-item-icon mdui-icon material-icons" style="color:#fff;">work</i>
 					<div class="mdui-list-item-content">题目中心</div>
 				</a>
@@ -73,26 +96,42 @@
 			</ul>
 		</div>
 
+		<!-- studentdetail -->
+
+		<div class="mdui-dialog" id="studentdetail" style="display: block; top: 38.9px; height: 500.2px;">
+			<br>
+			<div id="studentdata" class="mdui-dialog-content" style="height: 277.95px;">
+				<p style="font-size: 20px;" id="studentname"></p>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div>
+			<div class="mdui-dialog-actions"><br></div>
+		</div>
 
         <!-- ---------- rank ---------- -->
 		<br><br><br><br><br><br>
-        <div class="mdui-container"><div class="mdui-row">
-		<div class="mdui-container mdui-shadow-5 mdui-col-xs-6" style="background: white;">
+		<div class="mdui-container"><div class="mdui-row">
+		<div class="mdui-container mdui-shadow-5 mdui-col-xs-8" style="background: white;">
 			<div style="padding: 8px;">
                 <h2 id="exam-title" style="text-align: center;"></h2>
                 <div class="mdui-divider mdui-m-y-0"></div>
 				<div class="mdui-row">
-                    <div class="mdui-col-xs-2" style="text-align: center;">
+                    <div class="mdui-col-xs-1" style="text-align: center;">
                         <p><strong>排名</strong></p>
                     </div>
-                    <div class="mdui-col-xs-4" style="text-align: center;">
+                    <div class="mdui-col-xs-3" style="text-align: center;">
                         <p><strong>姓名</strong></p>
                     </div>
-                    <div class="mdui-col-xs-3" style="text-align: center;">
+                    <div class="mdui-col-xs-2" style="text-align: center;">
                         <p><strong>成绩</strong></p>
                     </div>
-                    <div class="mdui-col-xs-3" style="text-align: center;">
-                        <p><strong>百分制</strong></p>
+                    <div class="mdui-col-xs-2" style="text-align: center;">
+                        <p><strong>标准分</strong></p>
+                    </div>
+                    <div class="mdui-col-xs-2" style="text-align: center;">
+                        <p><strong id="subject-score"></strong></p>
+                    </div>
+                    <div class="mdui-col-xs-2" style="text-align: center;">
+                        <p><strong>能力分</strong></p>
                     </div>
                 </div>
                 <div id="exam-rank">
@@ -104,8 +143,7 @@
 					</div>
                 </div>
 			</div>		
-        </div>
-    </div></div>
+        </div></div></div>
         <br><br>
 
 		<!-- -----------联系方式-------------- -->
