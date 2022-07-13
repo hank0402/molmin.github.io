@@ -59,6 +59,9 @@
 				for(var i=0;i<4;i++)
 					$("score-"+String(i)).innerHTML=tmp.split(";")[i];
 				$("score-5").innerHTML=tmp.split("|")[0].split(";")[4];
+				var htmlcode="",data=tmp.split("|")[1].split(";");
+				for(var i=0;i<)
+				$("exam-library").innerHTML=htmlcode;
 			}
 			window.onload=function(){
 			}
@@ -129,8 +132,10 @@
 				</div>
 				<br>
 				<div class="mdui-row">
-					<div class="mdui-col-xs-2" style="text-align: center;"></div>
+					<div class="mdui-col-xs-9" style="text-align: center;"><b>考试名</b></div>
+					<div class="mdui-col-xs-3" style="text-align: center;"><b>标准分</b></div>
 				</div>
+				<div id="exam-library"></div>
 			</div>
 			<div class="mdui-dialog-actions"><br></div>
 		</div>
