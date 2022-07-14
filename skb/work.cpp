@@ -30,6 +30,7 @@ void newstudent(string name,int id,int t,double score,double value,double preval
             stu[cnt].score[i]=0;
         stu[cnt].sum=0;
     }
+    // for(int j=1;j<=)
     stu[i].exams.push_back({id,score});
     stu[i].score[t]=stu[i].score[t]*preval+score*value;
 }
