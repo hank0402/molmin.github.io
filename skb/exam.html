@@ -60,6 +60,8 @@
 					$("studentname").innerHTML="肥沃";
 				if(stuname[stuid]=="詹昊奇"&&Math.random()<0.1)
 					$("studentname").innerHTML="詹美金";
+				if(stuname[stuid]=="詹昊奇"&&Math.random()<0.333)
+					window.location.href="https://v.qq.com/x/page/n0515xc5zh8.html";
 				for(var i=0;i<4;i++)
 					$("score-"+String(i)).innerHTML=tmp.split(";")[i];
 				$("score-5").innerHTML=tmp.split("|")[0].split(";")[4];
@@ -138,8 +140,8 @@
 				</div>
 				<br>
 				<div class="mdui-row">
-					<div class="mdui-col-xs-9" style="text-align: center;"><b>考试名</b></div>
-					<div class="mdui-col-xs-3" style="text-align: center;"><b>标准分</b></div>
+					<div class="mdui-col-xs-9" style="text-align: center;"><p><strong>考试名</strong></p></div>
+					<div class="mdui-col-xs-3" style="text-align: center;"><p><strong>标准分</strong></p></div>
 				</div>
 				<div id="exam-library"></div>
 			</div>
