@@ -38,7 +38,7 @@
 					examname[i]=data[i].split("|")[0];
 				}
 				data=data[examid];
-				$("subject-score").innerHTML=sub[data.split(";")[0].split("|")[2]]+"分";
+				$("subject-score").innerHTML=sub[data.split(";")[0].split("|")[2]]+"综合分";
                 $("exam-title").innerHTML=data.split(";")[0].split("|")[0];
                 var fullscore=data.split(";")[1].split(":")[1];
                 var htmlcode="",prerank=1,score=0;
@@ -124,7 +124,9 @@
 			<br>
 			<div id="studentdata" class="mdui-dialog-content" style="height: 277.95px;">
 				<p style="font-size: 20px;" id="studentname"></p>
-				<div class="mdui-row">分-2" style="text-align: center;"><strong>数论</strong></div>
+				<div class="mdui-row">
+					<div class="mdui-col-xs-2" style="text-align: center;"><strong>代数</strong></div>
+					<div class="mdui-col-xs-2" style="text-align: center;"><strong>数论</strong></div>
 					<div class="mdui-col-xs-2" style="text-align: center;"><strong>组合</strong></div>
 					<div class="mdui-col-xs-2" style="text-align: center;"><strong>几何</strong></div>
 					<div class="mdui-col-xs-2" style="text-align: center;"><strong>成就</strong></div>
