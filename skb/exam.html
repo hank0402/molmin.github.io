@@ -54,14 +54,16 @@
 			function studetail(stuid){
 				var tmp=file[stuid];
 				$("studentname").innerHTML=stuname[stuid];
-				if(stuname[stuid]=="张芳闻"&&Math.random()<0.333)
-					$("studentname").innerHTML="Feewo";
-				else if(stuname[stuid]=="张芳闻"&&Math.random()<0.5)
-					$("studentname").innerHTML="肥沃";
-				if(stuname[stuid]=="詹昊奇"&&Math.random()<0.1)
-					$("studentname").innerHTML="詹美金";
-				if(stuname[stuid]=="詹昊奇"&&Math.random()<0.333)
-					window.location.href="https://v.qq.com/x/page/n0515xc5zh8.html";
+				if(getvalue("skbsbmode")==true){
+					if(stuname[stuid]=="张芳闻"&&Math.random()<0.333)
+						$("studentname").innerHTML="Feewo";
+					else if(stuname[stuid]=="张芳闻"&&Math.random()<0.5)
+						$("studentname").innerHTML="肥沃";
+					if(stuname[stuid]=="詹昊奇"&&Math.random()<0.1)
+						$("studentname").innerHTML="詹美金";
+					if(stuname[stuid]=="詹昊奇"&&Math.random()<0.333)
+						window.location.href="https://v.qq.com/x/page/n0515xc5zh8.html";
+				}
 				for(var i=0;i<4;i++)
 					$("score-"+String(i)).innerHTML=tmp.split(";")[i];
 				$("score-5").innerHTML=tmp.split("|")[0].split(";")[4];
@@ -149,42 +151,49 @@
 		</div>
 
         <!-- ---------- rank ---------- -->
-		<br><br><br><br><br><br>
-		<div class="mdui-container"><div class="mdui-row">
-		<div class="mdui-container mdui-shadow-5 mdui-col-xs-8" style="background: white;">
-			<div style="padding: 8px;">
-                <h2 id="exam-title" style="text-align: center;"></h2>
-                <div class="mdui-divider mdui-m-y-0"></div>
-				<div class="mdui-row">
-                    <div class="mdui-col-xs-1" style="text-align: center;">
-                        <p><strong>排名</strong></p>
-                    </div>
-                    <div class="mdui-col-xs-3" style="text-align: center;">
-                        <p><strong>姓名</strong></p>
-                    </div>
-                    <div class="mdui-col-xs-2" style="text-align: center;">
-                        <p><strong>成绩</strong></p>
-                    </div>
-                    <div class="mdui-col-xs-2" style="text-align: center;">
-                        <p><strong>标准分</strong></p>
-                    </div>
-                    <div class="mdui-col-xs-2" style="text-align: center;">
-                        <p><strong id="subject-score"></strong></p>
-                    </div>
-                    <div class="mdui-col-xs-2" style="text-align: center;">
-                        <p><strong>能力分</strong></p>
-                    </div>
-                </div>
-                <div id="exam-rank">
-					<div class="mdui-divider mdui-m-y-0"></div>
-					<div class="mdui-row">
-						<div class="mdui-col-xs-12">
-							<p style="text-align: center;">加载中 ...</p>
+		<div style="background-color: rgb(88, 88, 88);">
+			<br><br><br><br><br><br>
+			<div class="mdui-container">
+				<h1 id="exam-title" style="color: white;"></h1></div>
+			<br>
+		</div>
+		<br>
+		<div class="mdui-container">
+			<div class="mdui-row">
+				<div class="mdui-container mdui-shadow-5" style="background: white;">
+					<div class="mdui-col-xs-8" style="padding: 8px;">
+						<div class="mdui-row">
+							<div class="mdui-col-xs-1" style="text-align: center;">
+								<p><strong>排名</strong></p>
+							</div>
+							<div class="mdui-col-xs-3" style="text-align: center;">
+								<p><strong>姓名</strong></p>
+							</div>
+							<div class="mdui-col-xs-2" style="text-align: center;">
+								<p><strong>成绩</strong></p>
+							</div>
+							<div class="mdui-col-xs-2" style="text-align: center;">
+								<p><strong>标准分</strong></p>
+							</div>
+							<div class="mdui-col-xs-2" style="text-align: center;">
+								<p><strong id="subject-score"></strong></p>
+							</div>
+							<div class="mdui-col-xs-2" style="text-align: center;">
+								<p><strong>能力分</strong></p>
+							</div>
 						</div>
-					</div>
-                </div>
-			</div>		
-        </div></div></div>
+						<div id="exam-rank">
+							<div class="mdui-divider mdui-m-y-0"></div>
+							<div class="mdui-row">
+								<div class="mdui-col-xs-12">
+									<p style="text-align: center;">加载中 ...</p>
+								</div>
+							</div>
+						</div>
+					</div>		
+				</div>
+			</div>
+		</div>
         <br><br>
 
 		<!-- -----------联系方式-------------- -->
