@@ -127,3 +127,15 @@ function markdown(file){
 	}
 	return result;
 }
+
+function getvalue(key){
+	if(window.localStorage)
+		return window.localStorage.getItem(key);
+	message("浏览器不支持 Localstorage");
+	return undefined;
+}
+function setvalue(key,val){
+	if(window.localStorage)
+		window.localStorage.setItem(key,val);
+	message("浏览器不支持 Localstorage");
+}
