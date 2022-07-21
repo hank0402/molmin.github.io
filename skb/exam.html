@@ -24,6 +24,7 @@
 			}
 			loadfile("https://molmin.github.io/skb/data.txt",function(text){
                 examid=getParam("id");
+				$("exam-id").innerHTML=examid;
                 if(getParam("id")==null)examid=0;
 				console.log(text);
                 var data=text.split("\n\n")[1].split("\n");
@@ -38,7 +39,11 @@
 					examname[i]=data[i].split("|")[0];
 				}
 				data=data[examid];
-				$("subject-score").innerHTML=sub[data.split(";")[0].split("|")[2]]+"综合分";
+				$("exam-fullscore").innerHTML=data.split(";")[0].split("|")[1];
+				var subj=Number(data.split(";")[0].split("|")[2]);
+				$("exam-type").innerHTML=sub[subj];
+				if(subj==-1)subj=0,$("exam-type").innerHTML="综合";
+				$("subject-score").innerHTML=sub[subj]+"综合分";
                 $("exam-title").innerHTML=data.split(";")[0].split("|")[0];
                 var fullscore=data.split(";")[1].split(":")[1];
                 var htmlcode="",prerank=1,score=0;
@@ -47,7 +52,7 @@
                     var rank=i;
                     if(score==tmp.split(":")[1])rank=prerank;
                     else prerank=i,score=tmp.split(":")[1];
-                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-1" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-3" style="text-align: center; cursor: pointer;" onclick="studetail('+String(getstuid(tmp.split(":")[0]))+')" mdui-dialog="{target: \'#studentdetail\'}"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(parseInt(Number(tmp.split(":")[1])/fullscore*1000.0)/10.0)+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(getstufile(tmp.split(":")[0]).split(";")[data.split(";")[0].split("|")[2]])+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(getstufile(tmp.split(":")[0]).split("|")[0].split(";")[4])+'</p></div></div>';
+                    htmlcode=htmlcode+'<div class="mdui-divider mdui-m-y-0"></div><div class="mdui-row"><div class="mdui-col-xs-1" style="text-align: center;"><p>'+String(rank)+'</p></div><div class="mdui-col-xs-3" style="text-align: center; cursor: pointer;" onclick="studetail('+String(getstuid(tmp.split(":")[0]))+')" mdui-dialog="{target: \'#studentdetail\'}"><p>'+tmp.split(":")[0]+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+tmp.split(":")[1]+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(parseInt(Number(tmp.split(":")[1])/fullscore*1000.0)/10.0)+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(getstufile(tmp.split(":")[0]).split(";")[subj])+'</p></div><div class="mdui-col-xs-2" style="text-align: center;"><p>'+String(getstufile(tmp.split(":")[0]).split("|")[0].split(";")[4])+'</p></div></div>';
                 }
                 $("exam-rank").innerHTML=htmlcode;
 			});
@@ -190,20 +195,29 @@
 				</div>
 			</div>	
 			<div class="mdui-col-xs-4" style="padding: 8px;">
+				<br>
 				<div class="mdui-row">
-					<div class="mdui-col-xs-1" style="text-align: center;">
+					<div class="mdui-col-xs-6" style="text-align: center;">
 						<p><strong>考试编号</strong></p>
 					</div>
-					<div class="mdui-col-xs-3" style="text-align: center;">
-						<p></p>
+					<div class="mdui-col-xs-6" style="text-align: left;">
+						<p id="exam-id"></p>
 					</div>
 				</div>
-				<div id="exam-rank">
-					<div class="mdui-divider mdui-m-y-0"></div>
-					<div class="mdui-row">
-						<div class="mdui-col-xs-12">
-							<p style="text-align: center;">加载中 ...</p>
-						</div>
+				<div class="mdui-row">
+					<div class="mdui-col-xs-6" style="text-align: center;">
+						<p><strong>考试类型</strong></p>
+					</div>
+					<div class="mdui-col-xs-6" style="text-align: left;">
+						<p id="exam-type"></p>
+					</div>
+				</div>
+				<div class="mdui-row">
+					<div class="mdui-col-xs-6" style="text-align: center;">
+						<p><strong>考试满分</strong></p>
+					</div>
+					<div class="mdui-col-xs-6" style="text-align: left;">
+						<p id="exam-fullscore"></p>
 					</div>
 				</div>
 			</div>		
