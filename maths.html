@@ -25,6 +25,7 @@
 					htmlcode=htmlcode+problemhtml(data);
 				}
 				$("problems-div").innerHTML=htmlcode;
+				MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 			});
 			window.onload=function(){
 				$('problemsearch-title').value="";
