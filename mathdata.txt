@@ -30,7 +30,7 @@ e45669a921271e36772a07682abacc1d|6|iiii;tql
 $$
 x_{1}+x_{2}+\cdots+x_{n}=n, x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}=n^{2},
 $$
-求 $ \ds\sum_{i=1}^{n} x_{i}^{3} $ 的最小值及取最小值时的 $ \left(x_{1}, x_{2}, \cdots, x_{n}\right)$  。
+求 $ \sum\limits_{i=1}^{n} x_{i}^{3} $ 的最小值及取最小值时的 $ \left(x_{1}, x_{2}, \cdots, x_{n}\right)$  。
 
 
 
