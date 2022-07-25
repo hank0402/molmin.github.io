@@ -11,6 +11,10 @@
 		<script src="file/script/problem.js"></script>
 		<script src="file/script/mdui.min.js"></script>
 		<script>
+			function linksworker(links){
+// 				links
+				return "";
+			}
 			window.onload=function(){
 				loadfile("problem/"+getParam("id")+"/config.txt",function(text){
 					$("title").innerHTML=getParam("id")+". "+
@@ -25,6 +29,8 @@
 					config=config+gettags(text.split("\n")[2].split(";"),"#22700a");
 					config=config+"&nbsp;"+difficulty(text.split("\n")[0].split(";")[3]);
 					$("config-div").innerHTML=config;
+					var systemlink="https://molmin.github.io/problem/"+getParam("id");
+					$("links").innerHTML="<h4>外链与附件</h4>"+linksworker(text.split("\n")[4])+"<br><h4>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"solution.md||solution.md|||"+systemlink+"code.cpp||code.cpp");
 				});
 				loadfile("problem/"+getParam("id")+"/statement.md",function(text){
 					$("statement").innerHTML=markdown(text);
@@ -110,10 +116,13 @@
 					<br>
 					<div class="mdui-tab mdui-tab-centered" mdui-tab>
 						<a href="#statement" class="mdui-ripple">题面</a>
+						<a href="#links" class="mdui-ripple">外链与附件</a>
 						<a href="#solution" class="mdui-ripple">题解</a>
 						<a href="#code" class="mdui-ripple">程序</a>
 					</div>
 					<div id="statement" class="mdui-p-a-2">
+					</div>
+					<div id="links" class="mdui-p-a-2">
 					</div>
 					<div id="solution" class="mdui-p-a-2">
 					</div>
