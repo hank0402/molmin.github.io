@@ -34,7 +34,7 @@
 					$("config-div").innerHTML=config;
 					var systemlink="https://molmin.github.io/problem/"+getParam("id"),linkhtml="";
 					if(text.split("\n")[4].length>5)linkhtml="<h4 style='line-height: 0px;'>外链与附件</h4>"+linksworker(text.split("\n")[4])+"<br>";
-					$("links").innerHTML=linkhtml+"<h4 style='line-height: 0px;'>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"solution.md||solution.md|||"+systemlink+"code.cpp||code.cpp");
+					$("links").innerHTML=linkhtml+"<h4 style='line-height: 0px;'>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"/solution.md||solution.md|||"+systemlink+"/code.cpp||code.cpp");
 				});
 				loadfile("problem/"+getParam("id")+"/statement.md",function(text){
 					$("statement").innerHTML=markdown(text);
