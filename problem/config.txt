@@ -9,3 +9,4 @@
 10|Cycle in Graph|4|搜索;深度优先搜索;图论|CodeForces|CF263D;LGCF263D
 11|AmShZ and G.O.A.T.|5|基础算法;二分;数学|CodeForces|CF1610E;LGCF1610E
 12|信号强度（wifi）|3|基础算法;二分;数据结构;并查集;图论|本地题/模拟赛题/原创题|
+13|DeaphetS 的序列（sequence）|4|数学;数据结构;优先队列|本地题/模拟赛题/原创题|
