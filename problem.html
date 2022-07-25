@@ -29,8 +29,9 @@
 					config=config+gettags(text.split("\n")[2].split(";"),"#22700a");
 					config=config+"&nbsp;"+difficulty(text.split("\n")[0].split(";")[3]);
 					$("config-div").innerHTML=config;
-					var systemlink="https://molmin.github.io/problem/"+getParam("id");
-					$("links").innerHTML="<h4>外链与附件</h4>"+linksworker(text.split("\n")[4])+"<br><h4>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"solution.md||solution.md|||"+systemlink+"code.cpp||code.cpp");
+					var systemlink="https://molmin.github.io/problem/"+getParam("id"),linkhtml="";
+					if(text.split("\n")[4].length>5)linkhtml="<h4>外链与附件</h4>"+linksworker(text.split("\n")[4])+"<br>";
+					$("links").innerHTML=linkhtml+"<h4>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"solution.md||solution.md|||"+systemlink+"code.cpp||code.cpp");
 				});
 				loadfile("problem/"+getParam("id")+"/statement.md",function(text){
 					$("statement").innerHTML=markdown(text);
