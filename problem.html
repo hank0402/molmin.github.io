@@ -16,7 +16,7 @@
 				for(var i=0;i<links.length;i++){
 					code+='<div class="mdui-row problemsearch-problem"><div class="mdui-col-xs-4" onclick="window.location.href=\''+links[i].split("||")[0]+'\';"><p class="problemsearch-title">'+links[i].split("||")[1]+'</p></div><div class="mdui-col-xs-8"><p style="text-align: right; font-size: 13px; color: #666666;">'+links[i].split("||")[0]+'</p></div></div><div class="mdui-divider mdui-m-y-0"></div>';
 				}
-				return "";
+				return code;
 			}
 			window.onload=function(){
 				loadfile("problem/"+getParam("id")+"/config.txt",function(text){
