@@ -4,7 +4,7 @@
 
 - 若 $m\leq 2$，易得 $b$ 不为糟糕的序列。
 
-- 若 $m=3$，设 $b=\{b_0,\ b_1,\ b_2\}$，其中 $b_0\leq b_1\leq b_2$，则 $b$ 是糟糕的 $\Leftrightarrow b_0<\dfrac{b_0+b_1+b_2}3<b_1\leq b_2\Leftrightarrow b_0+b_2<2b_1$。
+- 若 $m=3$，设 $b=\{b_0,\ b_1,\ b_2\}$，其中 $b_0\leq b_1\leq b_2$，则 $b$ 是糟糕的 $\Leftrightarrow b_0 < \dfrac{b_0+b_1+b_2}3 < b_1\leq b_2\Leftrightarrow b_0+b_2 < 2b_1$。
 
 观察发现，对于一个好的序列 $a$，其长度为 $3$ 的子序列就必须有较多的性质。猜想：是否只需要考虑长度为 $3$ 的子序列？
 
