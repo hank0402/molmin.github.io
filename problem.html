@@ -11,38 +11,40 @@
 		<script src="file/script/problem.js"></script>
 		<script src="file/script/mdui.min.js"></script>
 		<script>
-			loadfile("problem/"+getParam("id")+"/config.txt",function(text){
-				$("title").innerHTML=getParam("id")+". "+
-					text.split("\n")[0].split(";")[0]+" - Milmon Problem";
-				$("problemtitle").innerHTML=getParam("id")+". "+text.split("\n")[0].split(";")[0];
-				var config="<p>";
-				config=config+"时间限制："+text.split("\n")[0].split(";")[1];
-				config=config+"&nbsp;&nbsp;&nbsp;&nbsp;空间限制："+text.split("\n")[0].split(";")[2];
-				config=config+"</p>";
-				config=config+gettags(text.split("\n")[1].split(";"),"#14558f");
-				config=config+"&nbsp;";
-				config=config+gettags(text.split("\n")[2].split(";"),"#22700a");
-				config=config+"&nbsp;"+difficulty(text.split("\n")[0].split(";")[3]);
-				$("config-div").innerHTML=config;
-			});
-			loadfile("problem/"+getParam("id")+"/statement.md",function(text){
-				$("statement").innerHTML=markdown(text);
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-			});
-			loadfile("problem/"+getParam("id")+"/solution.md",function(text){
-				$("solution").innerHTML=markdown(text);
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-			});
-			loadfile("problem/"+getParam("id")+"/code.cpp",function(text){
-				var tmp="";
-				for(var i=0;i<text.length;i++){
-					if(text.charAt(i)=='\t')tmp=tmp+"    ";
-					else tmp=tmp+"&#"+text.charCodeAt(i)+";";
-				}
-				$("answer-code").innerHTML="<pre class='code-pre'>"+tmp+"</pre>";
-				$("code-copycodebutton").onclick=function(){copy(text);}
-				MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-			});
+			window.onload=function(){
+				loadfile("problem/"+getParam("id")+"/config.txt",function(text){
+					$("title").innerHTML=getParam("id")+". "+
+						text.split("\n")[0].split(";")[0]+" - Milmon Problem";
+					$("problemtitle").innerHTML=getParam("id")+". "+text.split("\n")[0].split(";")[0];
+					var config="<p>";
+					config=config+"时间限制："+text.split("\n")[0].split(";")[1];
+					config=config+"&nbsp;&nbsp;&nbsp;&nbsp;空间限制："+text.split("\n")[0].split(";")[2];
+					config=config+"</p>";
+					config=config+gettags(text.split("\n")[1].split(";"),"#14558f");
+					config=config+"&nbsp;";
+					config=config+gettags(text.split("\n")[2].split(";"),"#22700a");
+					config=config+"&nbsp;"+difficulty(text.split("\n")[0].split(";")[3]);
+					$("config-div").innerHTML=config;
+				});
+				loadfile("problem/"+getParam("id")+"/statement.md",function(text){
+					$("statement").innerHTML=markdown(text);
+					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+				});
+				loadfile("problem/"+getParam("id")+"/solution.md",function(text){
+					$("solution").innerHTML=markdown(text);
+					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+				});
+				loadfile("problem/"+getParam("id")+"/code.cpp",function(text){
+					var tmp="";
+					for(var i=0;i<text.length;i++){
+						if(text.charAt(i)=='\t')tmp=tmp+"    ";
+						else tmp=tmp+"&#"+text.charCodeAt(i)+";";
+					}
+					$("answer-code").innerHTML="<pre class='code-pre'>"+tmp+"</pre>";
+					$("code-copycodebutton").onclick=function(){copy(text);}
+					MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+				});
+			}
 		</script>
 		<style>
 			p{
