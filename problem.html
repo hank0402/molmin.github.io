@@ -14,7 +14,7 @@
 			function linksworker(text){
 				var links=text.split("|||"),code='<div class="mdui-divider mdui-m-y-0"></div>';
 				for(var i=0;i<links.length;i++){
-					code+='<div class="mdui-row problemsearch-problem"><div class="mdui-col-xs-4" onclick="window.location.href=\''+links[i].split("||")[0]+'\';"><p class="problemsearch-title">'+links[i].split("||")[1]+'</p></div><div class="mdui-col-xs-8"><p style="text-align: right; font-size: 13px; color: #666666;">'+links[i].split("||")[0]+'</p></div></div><div class="mdui-divider mdui-m-y-0"></div>';
+					code+='<div class="mdui-row filesandlinks-row"><div class="mdui-col-xs-4" onclick="window.location.href=\''+links[i].split("||")[0]+'\';"><p class="problemsearch-title">'+links[i].split("||")[1]+'</p></div><div class="mdui-col-xs-8"><p style="text-align: right; font-size: 13px; color: #666666;">'+links[i].split("||")[0]+'</p></div></div><div class="mdui-divider mdui-m-y-0"></div>';
 				}
 				return code;
 			}
@@ -33,8 +33,8 @@
 					config=config+"&nbsp;"+difficulty(text.split("\n")[0].split(";")[3]);
 					$("config-div").innerHTML=config;
 					var systemlink="https://molmin.github.io/problem/"+getParam("id"),linkhtml="";
-					if(text.split("\n")[4].length>5)linkhtml="<h4>外链与附件</h4>"+linksworker(text.split("\n")[4])+"<br>";
-					$("links").innerHTML=linkhtml+"<h4>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"solution.md||solution.md|||"+systemlink+"code.cpp||code.cpp");
+					if(text.split("\n")[4].length>5)linkhtml="<h4 style='line-height: 0px;'>外链与附件</h4>"+linksworker(text.split("\n")[4])+"<br>";
+					$("links").innerHTML=linkhtml+"<h4 style='line-height: 0px;'>系统文件</h4>"+linksworker(systemlink+"/statement.md||statement.md|||"+systemlink+"solution.md||solution.md|||"+systemlink+"code.cpp||code.cpp");
 				});
 				loadfile("problem/"+getParam("id")+"/statement.md",function(text){
 					$("statement").innerHTML=markdown(text);
