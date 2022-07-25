@@ -6,4 +6,5 @@
 7|三角形（triangle）|5|计算几何;凸包;二分|本地题/模拟赛题/原创题|NO
 8|Ant colony|6|数据结构;线段树;数学;最大公约数|CodeForces|CF474F
 9|丁香之路|6|图论;欧拉路|省选;省选联考;省选联考 B 卷;2020|LGP6628
+10|Cycle in Graph|4|搜索;深度优先搜索;图论|CodeForces|CF263D;LGCF263D
 11|AmShZ and G.O.A.T.|5|基础算法;二分;数学|CodeForces|CF1610E;LGCF1610E
