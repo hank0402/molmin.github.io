@@ -7,6 +7,8 @@ int n;
 priority_queue<int> Q; 
 
 int main(){
+	freopen("sequence.in","r",stdin);
+	freopen("sequence.out","w",stdout);
 	scanf("%d",&n);
 	long long nowsum=0,answer=0;
 	for(int i=1;i<=n;i++){
